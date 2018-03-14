@@ -39,7 +39,8 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 //start server
-mongoose.connect("mongodb://localhost/we_poll");
+//mongoose.connect("mongodb://localhost/we_poll");
+mongoose.connect("mongodb://BandsWithLegends:21smadA21smadA@ds113749.mlab.com:13749/wepoll")
 
 //clear and seed DB
 seedDB();
