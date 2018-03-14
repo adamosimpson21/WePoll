@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WePoll</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
+        <link rel="stylesheet" href="/stylesheets/main.css"></link>
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+        <script type="text/javascript" src="/scripts/main.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark" id="main-nav-bar">
+            <a class="navbar-brand" href="/questions"><img src="https://scontent.fsnc1-1.fna.fbcdn.net/v/t31.0-8/21014149_1644091995610146_5526153271687931833_o.jpg?oh=5d9d391d8df54fddb315bfaa83cd6a9e&oe=5B04DC01" height=32 width=32></img></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/mainmenu">Main Menu<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/questions">Question Page</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="/questions">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="/questions">Settings</a>
+                        </li>
+                        <!--<li class="nav-item dropdown">-->
+                        <!--    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                        <!--        Dropdown-->
+                        <!--    </a>-->
+                        <!--    <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+                        <!--        <a class="dropdown-item" href="#">Action</a>-->
+                        <!--        <a class="dropdown-item" href="#">Another action</a>-->
+                        <!--        <div class="dropdown-divider"></div>-->
+                        <!--        <a class="dropdown-item" href="#">Something else here</a>-->
+                        <!--    </div>-->
+                        <!--</li>-->
+                    </ul>
+                <div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <% if(!currentUser){ %>
+                            <li><div class="container"><a href="/login">Login </a></div></li>
+                            <li><div class="container"><a href="/register">Sign Up</a></div></li>
+                        <% } else { %>
+                            <li><div class="container"><a>Signed in as <%=currentUser.username%></a></div></li>
+                            <li><div class="container"><a href="/logout">LogOut</a></div></li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!--Flash Alert System-->
+        <hr>
+        <div class="container">
+            <% if(error && error.length > 0){ %>
+                <div class="alert alert-danger" role="alert">
+                    <%=error%>
+                </div>
+            <% } %>
+            <% if(success && success.length > 0){ %>
+                <div class="alert alert-success" role="alert">
+                    <%=success%>
+                </div>
+            <% } %>
+        </div>

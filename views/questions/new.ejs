@@ -1,0 +1,63 @@
+<% include ../partials/header %>
+
+<!--Question New Page-->
+<div class="container">
+    <div class="row">
+        <h1 id="questionNewHeader">Create a new Question</h1>
+    </div>
+    <div>
+        <form class="container form-group" action="/questions" method="POST">
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6 form-group">
+                     <input class="form-control" type="text" placeholder="Title" name="title"></input>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6 form-group">
+                    <input class="form-control" type="text" placeholder="What is your question?" name="questionContent"></input>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6 form-group">
+                    <input class="form-control" type="text" placeholder="Description" name="description"></input>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6 form-group">
+                     <input class="form-control" type="text" placeholder="Education" name="education"></input>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6 form-group">
+                     <input class="form-control" type="text" placeholder="Answer1" name="answer1[text]"></input>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6 form-group">
+                     <input class="form-control" type="text" placeholder="Answer2" name="answer2[text]"></input>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6 form-group">
+                     <input class="form-control" type="text" placeholder="Answer3" name="answer3[text]"></input>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6 form-group">
+                     <button class="form-control">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<% include ../partials/footer %>

@@ -1,0 +1,64 @@
+body{
+    background:lightblue;
+}
+
+#main-nav-bar{
+    background-color:darkblue;
+}
+
+#logInTitle{
+    padding:30px;
+}
+
+.jumbotronMain{
+    margin-top:30px;
+}
+
+.menu-button{
+    width:200px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+h4{
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+}
+
+#questionNewHeader{
+    margin:50px auto 50px auto;
+}
+
+.answerDisplay{
+    width:200px;
+}
+
+.answerDisplay:focus{
+    background:green;
+}
+
+.answerList{
+    list-style: none;
+    padding-left:0;
+}
+
+.answerList li{
+    padding:10px 0 10px 0;
+    margin:auto;
+    width:200px;
+}
+
+.questionTitle{
+    width:500px;
+    /*margin:auto;*/
+    padding:50px;
+    text-align:center;
+}
+
+.eduLink{
+    display:none;
+}
+
+#questionAnswered{
+    display:none;
+}
