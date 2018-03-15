@@ -29,10 +29,6 @@ h4{
     margin:50px auto 50px auto;
 }
 
-.answerDisplay{
-    width:200px;
-}
-
 .answerDisplay:focus{
     background:green;
 }
@@ -61,4 +57,10 @@ h4{
 
 #questionAnswered{
     display:none;
+}
+
+.menuh4{
+    width:400px;
+    padding:10px;
+    margin:auto;
 }

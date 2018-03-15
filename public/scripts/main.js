@@ -2,6 +2,7 @@
 //JQuery included already
 /*global $*/
 
+
 $(function(){
     //shows Q show route after Q edu seen
     $("#eduLinkSend").on("click", function(){
@@ -10,12 +11,13 @@ $(function(){
     
     //shows ans after choice selector
     $(".answerDisplay").on("click", function(){
+        
         $("#questionAnswered").show();
     });
     
     //currently focused Answer
-    $(".answerDisplay").on("click", function(){
-        //alert("Are you sure your answer is " + $(this).text());
-    })
+    // $(".answerDisplay").on("click", function(){
+    //     alert("Are you sure your answer is " + $(this).text());
+    // })
 });
 

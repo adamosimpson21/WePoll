@@ -15,12 +15,7 @@ var questionSchema = new mongoose.Schema({
     description: String,
     xpReward: Number,
     education: String,
-    answers: [
-        {
-            type:mongoose.Schema.Types.ObjectId,
-            ref:"Answer"
-        }
-    ]
+    answers: []
 })
 
 module.exports = mongoose.model("Question", questionSchema);

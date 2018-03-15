@@ -32,10 +32,10 @@ router.post("/", middleware.isLoggedIn, function(req, res){
     var author = {};
     var rating = 1;
     var xpReward = 100;
-    var answer1 = req.body.answer1;
-    var answer2 = req.body.answer2;
-    var answer3 = req.body.answer3;
-    var newQuestion = {title:title, description:description,questionContent:questionContent,education:education,author:author, rating:rating, xpReward:xpReward}
+    var answer1 = req.body.answer1.text;
+    var answer2 = req.body.answer2.text;
+    var answer3 = req.body.answer3.text;
+    var newQuestion = {title:title, description:description,questionContent:questionContent,education:education,author:author, rating:rating, xpReward:xpReward, answers:[answer1,answer2,answer3]}
     //console.log(newQuestion);
     //create a new question and save to DB
     Question.create(newQuestion, function(err, questionVar){
@@ -43,22 +43,27 @@ router.post("/", middleware.isLoggedIn, function(req, res){
             console.log(err)
             req.flash("error", err.message);
         } else {
-            middleware.createAnswer(answer1, answer2, answer3, questionVar);
-            //console.log("questionVar is NOW " + questionVar);
+            //console.log(questionVar);
+            questionVar.save();
         }
     })
-    //console.log("Before I redirect2, question is" + newQuestion)
     res.redirect("/questions");
 })
 
 //Questions Show Route
 router.get("/:id", middleware.isLoggedIn, function(req, res){
-    Question.findById(req.params.id).populate("answers").exec(function(err, foundQuestion){
+    Question.findById(req.params.id).exec(function(err, foundQuestion){
         if(err){
             console.log(err)
             req.flash("error", err.message);
         } else {
-            res.render("questions/show", {question:foundQuestion})
+            //check to see if User has answered question
+            if(middleware.hasAnswered(req.user, foundQuestion)){
+                req.flash("error", "You've answered this question already");
+                res.redirect("/questions");
+            } else{
+                res.render("questions/show", {question:foundQuestion})
+            }
         }
     });
 });
@@ -69,7 +74,12 @@ router.get("/:id/education", middleware.isLoggedIn, function(req, res){
         if(err){
             console.log(err);
         } else {
-            res.render("questions/education", {question:foundQuestion});
+            // if(middleware.hasAnswered(req.user, foundQuestion)){
+            //     req.flash("error", "You've answered this question already");
+            //     res.redirect("/questions");
+            // } else{
+               res.render("questions/education", {question:foundQuestion})
+            // }
         }
     });
 });
@@ -78,12 +88,27 @@ router.get("/:id/education", middleware.isLoggedIn, function(req, res){
 router.post("/:id", middleware.isLoggedIn, function(req, res){
     Question.findById(req.params.id).exec(function(err, foundQuestion){
         if(err){
-            console.log(req.params.id);
-            console.log(err.message);
+            //console.log(req.params.id);
+            //console.log(err.message);
             res.redirect("/:id")
         } else {
-            console.log(req.params.id);
+            //console.log(middleware.hasAnswered(req.user, foundQuestion));
+            var newAnswer=req.body.answerChoice;
+            middleware.logAnswer(newAnswer, foundQuestion, req.user)
+        }
+            res.redirect("/questions/"+ req.params.id+"/results");
+        }
+    )
+})
+
+//Question Results Route
+router.get("/:id/results", middleware.isLoggedIn, function(req, res){
+    Question.findById(req.params.id).exec(function(err, foundQuestion){
+        if(err){
+            console.log(err);
             res.redirect("/questions")
+        } else {
+            res.render("questions/results", {question:foundQuestion});
         }
     })
 })

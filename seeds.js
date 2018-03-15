@@ -18,12 +18,7 @@ var data= [
         description: "How colorful",
         xpReward: 1,
         education: "https://en.wikipedia.org/wiki/Color",
-        answers: [
-            // {
-            //     type:mongoose.Schema.Types.ObjectId,
-            //     ref:"Answer"
-            // }
-        ]
+        answers:["Blue","Red","Periwinkle"]
     },
     {
         title: "Favorite Programmer",
@@ -39,12 +34,7 @@ var data= [
         description: "Programmers are cool",
         xpReward: 1,
         education: "https://en.wikipedia.org/wiki/Computer",
-        answers: [
-            // {
-            //     type:mongoose.Schema.Types.ObjectId,
-            //     ref:"Answer"
-            // }
-        ]
+        answers: ["Bill Gates","Alan Turing","Your Brother"]
     },
     {
         title: "Cool Dude",
@@ -60,12 +50,7 @@ var data= [
         description: "Mah Dude",
         xpReward: 100,
         education: "https://en.wikipedia.org/wiki/Man",
-        answers: [
-            // {
-            //     type:mongoose.Schema.Types.ObjectId,
-            //     ref:"Answer"
-            // }
-        ]
+        answers: ["Mah Dude","Ya Boi","Yo Dawg"]
     },
 ]
 
@@ -84,11 +69,13 @@ function seedDB(){
                 } else {
                     console.log("added a question");
                     //middleware
-                    var answer1 = {text: "First Answer"};
-                    var answer2 = {text: "Second Answer"};
-                    var answer3 = {text: "Third Answer"};
-                    middleware.createAnswer(answer1,answer2,answer3,question);
-                    console.log("Answers Created");
+                    // var answer1 = "First Answer"
+                    // var answer2 = "Second Answer"
+                    // var answer3 = "Third Answer"
+                    // middleware.createAnswer2(answer1,question);
+                    // middleware.createAnswer2(answer2,question);
+                    // middleware.createAnswer2(answer3,question);
+                    //console.log("Answers Created");
                 }
                 })
             })

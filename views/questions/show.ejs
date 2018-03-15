@@ -1,7 +1,7 @@
 <% include ../partials/header %>
 
 
-
+<!--Question show route-->
 
 <div class="container">
     <div class="container questionTitle">
@@ -13,12 +13,14 @@
     <div>
         <form action="/questions/<%=question._id%>" method="POST">
             <ul class="answerList">
-                <% question.answers.forEach(function(answer){ %>
-                    <div class="container">
-                        <div>
-                            <!--%=console.log(question)%>-->
-                            <li><button class="btn btn-large btn-primary answerDisplay"><%=answer.text%></button></li>
-                        </div>
+                <!--%= console.log(question)%>-->
+                <% question.answers.forEach(function(answer, index){ %>
+                    <div class="form-check">
+                        <input class="form-check-input answerDisplay" type="radio" name="answerChoice" id="answerChoice<%=index%>" value="<%=answer%>">
+                        <label class="form-check-label" for="exampleRadios<%=index%>">
+                            <!--%=console.log(answer)%>-->
+                            <%=answer%>
+                        </label>
                     </div>
                 <% }) %>
             </ul>
@@ -32,4 +34,5 @@
 
 
 <% include ../partials/footer %>
+
 
