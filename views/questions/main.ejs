@@ -1,13 +1,13 @@
 <%//Psuedocode for finding user's answer
 
 getAnswer=function(){
-    console.log("you got this far")
+    //console.log("you got this far")
         for(var i=0; i<currentUser.questions.length; i++){
-            console.log("starting forLoop " + i)
-            
+            //console.log("starting forLoop " + i)
+            console.log(currentUser.questions)
             if(currentUser.questions[i][0].equals(question._id)){
-                console.log("looping through if "+ i)
-                return currentUser.questions[i][1]
+                //console.log("looping through if "+ i)
+                return currentUser.questions[i][1][0]
             }
         }
         return false

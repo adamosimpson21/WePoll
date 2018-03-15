@@ -18,7 +18,7 @@ var data= [
         description: "How colorful",
         xpReward: 1,
         education: "https://en.wikipedia.org/wiki/Color",
-        answers:["Blue","Red","Periwinkle"]
+        answers:[["Blue",0],["Red",0],["Periwinkle",0]]
     },
     {
         title: "Favorite Programmer",
@@ -34,7 +34,7 @@ var data= [
         description: "Programmers are cool",
         xpReward: 1,
         education: "https://en.wikipedia.org/wiki/Computer",
-        answers: ["Bill Gates","Alan Turing","Your Brother"]
+        answers: [["Bill Gates",0],["Alan Turing",0],["Your Brother",0]]
     },
     {
         title: "Cool Dude",
@@ -50,7 +50,7 @@ var data= [
         description: "Mah Dude",
         xpReward: 100,
         education: "https://en.wikipedia.org/wiki/Man",
-        answers: ["Mah Dude","Ya Boi","Yo Dawg"]
+        answers: [["Mah Dude",0],["Ya Boi",0],["Yo Dawg",0]]
     },
 ]
 

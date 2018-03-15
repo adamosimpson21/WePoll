@@ -32,9 +32,9 @@ router.post("/", middleware.isLoggedIn, function(req, res){
     var author = {};
     var rating = 1;
     var xpReward = 100;
-    var answer1 = req.body.answer1.text;
-    var answer2 = req.body.answer2.text;
-    var answer3 = req.body.answer3.text;
+    var answer1 = [req.body.answer1.text,0];
+    var answer2 = [req.body.answer2.text,0];
+    var answer3 = [req.body.answer3.text,0];
     var newQuestion = {title:title, description:description,questionContent:questionContent,education:education,author:author, rating:rating, xpReward:xpReward, answers:[answer1,answer2,answer3]}
     //console.log(newQuestion);
     //create a new question and save to DB
@@ -89,16 +89,15 @@ router.post("/:id", middleware.isLoggedIn, function(req, res){
     Question.findById(req.params.id).exec(function(err, foundQuestion){
         if(err){
             //console.log(req.params.id);
-            //console.log(err.message);
-            res.redirect("/:id")
+            console.log(err.message);
+            res.redirect("/questions/"+req.params.id);
         } else {
             //console.log(middleware.hasAnswered(req.user, foundQuestion));
-            var newAnswer=req.body.answerChoice;
+            var newAnswer=[req.body.answerChoice,0];
             middleware.logAnswer(newAnswer, foundQuestion, req.user)
-        }
             res.redirect("/questions/"+ req.params.id+"/results");
         }
-    )
+    })
 })
 
 //Question Results Route

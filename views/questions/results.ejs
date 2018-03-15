@@ -13,7 +13,16 @@
     <div>
         <h4>You've voted <%= getAnswer()%> to <%=question.title%></h4>
     </div>
-   
+    <div>
+        <h4>Current Vote Tally</h4>
+        <ul class="answerList">
+            <%= console.log(question)%>
+            <% question.answers.forEach(function(answer, index){ %>
+            <%console.log("answer is "+ answer)%>
+               <li><%=answer[0]%> : <%=answer[1]%></li>
+            <% }) %>
+        </ul>
+   </div>
 </div>
 
 

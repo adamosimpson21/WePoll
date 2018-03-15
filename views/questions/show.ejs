@@ -16,10 +16,10 @@
                 <!--%= console.log(question)%>-->
                 <% question.answers.forEach(function(answer, index){ %>
                     <div class="form-check">
-                        <input class="form-check-input answerDisplay" type="radio" name="answerChoice" id="answerChoice<%=index%>" value="<%=answer%>">
+                        <input class="form-check-input answerDisplay" type="radio" name="answerChoice" id="answerChoice<%=index%>" value="<%=answer[0]%>">
                         <label class="form-check-label" for="exampleRadios<%=index%>">
                             <!--%=console.log(answer)%>-->
-                            <%=answer%>
+                            <%=answer[0]%>
                         </label>
                     </div>
                 <% }) %>
