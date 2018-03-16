@@ -43,7 +43,7 @@ passport.deserializeUser(User.deserializeUser());
 mongoose.connect("mongodb://BandsWithLegends:GrapeJelly@ds113749.mlab.com:13749/wepoll")
 
 //clear and seed DB
-//seedDB();
+seedDB();
 
 //calls this function on every route, gets userInfo
 app.use(function(req, res, next){
