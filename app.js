@@ -47,8 +47,8 @@ mongoose.connect(process.env.DATABASEURL);
 
 //clear and seed DB
 //seedDB();
-//seedDBItems();
-//seedDBparties();
+seedDBItems();
+seedDBparties();
 
 
 //calls this function on every route, gets userInfo
