@@ -16,13 +16,13 @@
     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
         <% questions.forEach(function(question){%>
             <div class="col-md-3 col-sm-6">
-                <div class="thumbnail">
+                <div class="thumbnail rounded">
                     <div class="caption">
-                        <h4><%=question.title%></h4>
-                        <h4><%=question.description%></h4>
+                        <h5 class="indexDisplay"><%=question.title%></h5>
+                        <h5 class="indexDisplay"><%=question.description%></h5>
                     </div>
                     <p>
-                        <a href="/questions/<%=question._id%>/education" class="btn btn-primary">Learn, then Answer this Q</a>
+                        <a href="/questions/<%=question._id%>/education" class="btn btn-primary">Learn and Answer this Q</a>
                     </p>
                 </div>
             </div>

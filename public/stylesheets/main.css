@@ -64,3 +64,32 @@ h4{
     padding:10px;
     margin:auto;
 }
+
+.thumbnail{
+    border: 2px solid gray;
+    margin:5px;
+}
+
+.indexDisplay{
+    padding:2px;
+}
+
+.itemDisplay{
+    width:200px;
+    /*height:200px;*/
+}
+
+.coinImage{
+    width:25px;
+    height:25px;
+}
+
+.avatarImage{
+    height:100px;
+    width:100px;
+}
+
+.partyImage{
+    height:100px;
+    width:200px;
+}

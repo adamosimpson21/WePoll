@@ -29,6 +29,9 @@
                 <button class="questionSubmit">Lock It In!</button>
             </div>
         </form>
+        <%if(question.author!==undefined){%>
+            <div>This Question was created by <%=question.author.username%></div>
+        <% } %>
     </div>
 </div>
 

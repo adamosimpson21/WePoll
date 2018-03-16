@@ -36,41 +36,6 @@ Array.prototype.equals = function (array) {
 }
 // Hide method from for-in loops
 Object.defineProperty(Array.prototype, "equals", {enumerable: false});
-// middlewareObj.createAnswer= function createAnswer(answer1, answer2, answer3, question){
-//     Answer.create(answer1, function(err, answerCreated){
-//         if(err){
-//             console.log(err);
-//         } else {
-//             answerCreated.save();
-//             //console.log("answerCreated is " + answerCreated);
-//             question.answers.push(answerCreated._id);
-//             //question.save();
-//             //console.log("The question is currently " + question);
-//         }
-//     });
-//     Answer.create(answer2, function(err, answerCreated){
-//         if(err){
-//             console.log(err);
-//         } else {
-//             answerCreated.save();
-//             //console.log("answerCreated is " + answerCreated);
-//             question.answers.push(answerCreated._id);
-//             //question.save();
-//             //console.log("The question is currently " + question);
-//         }
-//     });
-//     Answer.create(answer3, function(err, answerCreated){
-//         if(err){
-//             console.log(err);
-//         } else {
-//             answerCreated.save();
-//             //console.log("answerCreated is " + answerCreated);
-//             question.answers.push(answerCreated._id);
-//             question.save();
-//             //console.log("The question is currently " + question);
-//         }
-//     });
-// };
 
 middlewareObj.createAnswer= function createAnswer2(answer, question){
     question.answers.push(answer);
@@ -117,11 +82,11 @@ middlewareObj.logAnswer = function logAnswer(answer, question, user){
 middlewareObj.hasAnswered = function hasAnswered(user, question){
     for(var i=0; i<user.questions.length; i++){
     //loops through IDs of question that user has answered, compares with current questionID
-        if (user.questions[i][0].equals(question._id)){
-            //returns true if user has answered question
-            return true
-        }
+    if (user.questions[i][0].equals(question._id)){
+        //returns true if user has answered question
+        return true
     }
+}
     //exits loops and returns false if user has no answered question
     return false
 }

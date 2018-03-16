@@ -22,7 +22,13 @@
                <li><%=answer[0]%> : <%=answer[1]%></li>
             <% }) %>
         </ul>
-   </div>
+    </div>
+    <div>
+       <a href="/questions">Click here to go back to the Questions Page</a>
+    </div>
+    <%if(question.author!==undefined){%>
+        <div>This Question was created by <%=question.author.username%></div>
+    <% } %>
 </div>
 
 

@@ -3,14 +3,15 @@ var passportLocalMongoose = require("passport-local-mongoose");
 
 //User Schema Setup
 var UserSchema = new mongoose.Schema({
-    name: String,
+    username: String,
     password: String,
     image: String,
     settings: [],
     party: [],
     questions: [],
     coins: Number,
-    inventory: []
+    inventory: [],
+    avatar:String
 })
 
 UserSchema.plugin(passportLocalMongoose);

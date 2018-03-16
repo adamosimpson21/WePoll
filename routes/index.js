@@ -35,14 +35,15 @@ router.get("/register", function(req, res){
 
 //SignUp Logic
 router.post("/register", function(req, res){
-    var newUser = new User({username:req.body.username});
+    var newUser = new User({username:req.body.username, coins:5, avatar:"https://freeclipartimage.com//storage/upload/human-clipart/human-clipart-15.png"});
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             req.flash("error", err.message);
-            return res.render("register");
+            res.render("register");
         }
         passport.authenticate("local")(req, res, function(){
             req.flash("success", "Welcome to WePoll "+ user.username)
+            //console.log(user)
             res.redirect("/questions");
         })
     })

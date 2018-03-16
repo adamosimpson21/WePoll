@@ -29,7 +29,10 @@ router.post("/", middleware.isLoggedIn, function(req, res){
     var description = req.body.description;
     var questionContent = req.body.questionContent;
     var education = req.body.education;
-    var author = {};
+    var author = {
+        id:req.user._id,
+        username:req.user.username
+    };
     var rating = 1;
     var xpReward = 100;
     var answer1 = [req.body.answer1.text,0];
@@ -60,7 +63,7 @@ router.get("/:id", middleware.isLoggedIn, function(req, res){
             //check to see if User has answered question
             if(middleware.hasAnswered(req.user, foundQuestion)){
                 req.flash("error", "You've answered this question already");
-                res.redirect("/questions");
+                res.redirect("/questions/"+req.params.id+"/results");
             } else{
                 res.render("questions/show", {question:foundQuestion})
             }

@@ -1,0 +1,16 @@
+<% include ../partials/header %>
+
+<!--Profile Index Page-->
+
+<h1>Hello <%=currentUser.username%>, Welcome to the Profile Page</h1>
+
+<h4>Let's look at your stats</h4>
+<h4>Username: <%=currentUser.username%></h4>
+<h4>Party: <%=currentUser.party%></h4>
+<h4>Number of questions Answered: <%=currentUser.questions.length%></h4>
+<h4>Inventory: <%=currentUser.inventory%></h4>
+<h4>Avatar: <img class="avatarImage"src="<%=currentUser.avatar%>"></img></h4>
+<h4>Password: Haha, Just Kidding</h4>
+
+
+<% include ../partials/footer %>

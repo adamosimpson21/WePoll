@@ -10,7 +10,9 @@ var express         = require("express"),
     User            = require("./models/user"),
     Question        = require("./models/question"),
     Answer          = require("./models/answer"),
-    seedDB          = require("./seeds");
+    seedDB          = require("./seeds"),
+    seedDBItems     = require("./itemSeeds"),
+    seedDBparties   = require("./partySeeds");
 
 //requiring routes
 var questionsRoutes = require("./routes/questions"),
@@ -39,11 +41,15 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 //start server
-// mongoose.connect(process.env.DATABASEURL);
-mongoose.connect("mongodb://BandsWithLegends:GrapeJelly@ds113749.mlab.com:13749/wepoll")
+//process.env.DATABASEURL = mongodb://localhost/wepoll
+mongoose.connect(process.env.DATABASEURL);
+//mongoose.connect("mongodb://BandsWithLegends:GrapeJelly@ds113749.mlab.com:13749/wepoll")
 
 //clear and seed DB
-seedDB();
+//seedDB();
+//seedDBItems();
+//seedDBparties();
+
 
 //calls this function on every route, gets userInfo
 app.use(function(req, res, next){
