@@ -5,20 +5,36 @@
 <div class="container">
     <h1>Look at all of this cool merchandise you can get!</h1>
     <p>Your Avatar:<img class="avatarImage" src="<%=currentUser.avatar%>"></img></p>
+    <% if (currentUser && currentUser.inventory[0]){ %>
+        <p>Your Inventory:
+        <% currentUser.inventory.forEach(function(item, i){ %>
+            <img class="inventoryImage itemDisplay" src="<%=currentUser.inventory[i].image%>"></img>
+        <% }) %>
+        </p>
+    <% } %>
     <h4>You have <%=currentUser.coins%> <img class="coinImage" src="http://www.free-icons-download.net/images/question-mark-gold-coin-icon-34507.png"></h4>
+    <h4>Need some more coins?</h4>
+    <form action="/shop" method="POST">
+        <input type="number" value="5" name="coinNumber"></input>
+        <button>Submit</button>
+    </form>
     
     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
         <%items.forEach(function(item){%>
             <div class="col-md-3 col-sm-6">
                 <div class="thumbnail rounded">
                     <div class="caption">
-                        <h5 class="itemDisplay"><%=item.name%></h5>
-                        <h5 class="itemDisplay">This costs <%=item.cost%><img class="coinImage" src="http://www.free-icons-download.net/images/question-mark-gold-coin-icon-34507.png"></h5>
-                        <img class="itemDisplay" src="<%=item.image%>">
+                        <form action="/shop/buy" method="POST">
+                            <h5 class="itemDisplay"><%=item.name%></h5>
+                            <h5 class="itemDisplay">This costs <%=item.cost%><img class="coinImage" src="http://www.free-icons-download.net/images/question-mark-gold-coin-icon-34507.png"></h5>
+                            
+                            <img class="itemDisplay" src="<%=item.image%>">
+                            <button type="submit" value="<%=item._id%>" name="item">Buy <%=item.name%></button>
+                        </form>
                     </div>
                 </div>
             </div>
-        <%})%>
+        <% }) %>
     </div>
 </div>
 

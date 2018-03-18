@@ -40,7 +40,7 @@ function seedDBparties(){
                     if(err){
                         console.log(err);
                     } else {
-                        console.log("party created: "+ party)
+                        // console.log("party created: "+ party)
                     }
                 })
             })

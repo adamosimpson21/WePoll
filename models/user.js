@@ -10,7 +10,12 @@ var UserSchema = new mongoose.Schema({
     party: [],
     questions: [],
     coins: Number,
-    inventory: [],
+    inventory: [
+        {
+           type:mongoose.Schema.Types.ObjectId,
+           ref: "Item"
+        }
+    ],
     avatar:String
 })
 

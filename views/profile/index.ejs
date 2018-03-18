@@ -2,15 +2,33 @@
 
 <!--Profile Index Page-->
 
-<h1>Hello <%=currentUser.username%>, Welcome to the Profile Page</h1>
 
-<h4>Let's look at your stats</h4>
-<h4>Username: <%=currentUser.username%></h4>
-<h4>Party: <%=currentUser.party%></h4>
-<h4>Number of questions Answered: <%=currentUser.questions.length%></h4>
-<h4>Inventory: <%=currentUser.inventory%></h4>
-<h4>Avatar: <img class="avatarImage"src="<%=currentUser.avatar%>"></img></h4>
-<h4>Password: Haha, Just Kidding</h4>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <h4>Avatar:</h4>
+            <p class="lead"> <img class="avatarImage"src="<%=currentUser.avatar%>"></img></p>
+        </div>
+        <div class="col-md-9">
+            <div class="">
+                <h1 class="text-center profileTitle"><%=currentUser.username%>'s Profile Page</h1>
+                <div class="list-group">
+                    <h4 class="list-group-item">Username: <%=currentUser.username%></h4>
+                    <h4 class="list-group-item">Party: <%=currentUser.party%></h4>
+                    <h4 class="list-group-item">Number of questions Answered: <%=currentUser.questions.length%></h4>
+                    <h4 class="list-group-item">Inventory: 
+                        <% if (currentUser && currentUser.inventory[0]){ %>
+                            <% currentUser.inventory.forEach(function(item, i){ %>
+                                <img class="inventoryImage itemDisplayProfile" src="<%=currentUser.inventory[i].image%>"></img>
+                            <% }) %>
+                        <% } %>
+                    </h4>
+                    <h4 class="list-group-item">Password: Haha, Just Kidding</h4>    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <% include ../partials/footer %>

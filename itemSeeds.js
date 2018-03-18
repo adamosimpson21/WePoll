@@ -19,6 +19,12 @@ var itemData = [
         cost:3,
         image:"https://openclipart.org/download/255282/Racing_Flag_Red.svg",
         stack:1
+    },
+        {
+        name:"Really Sweet Bicycle",
+        cost:10,
+        image:"https://5.imimg.com/data5/KO/RD/MY-1665840/gutts-26-500x500.jpg",
+        stack:1
     }
 ]
 
@@ -34,7 +40,7 @@ function seedDBItems(){
                     if(err){
                         console.log(err);
                     } else {
-                        console.log("item created: "+item)
+                        // console.log("item created: "+item)
                     }
                 })
             })

@@ -85,11 +85,29 @@ h4{
 }
 
 .avatarImage{
-    height:100px;
-    width:100px;
+    height:200px;
+    width:200px;
 }
 
 .partyImage{
     height:100px;
     width:200px;
+}
+
+.itemDisplayProfile{
+    /*width:50px;*/
+    height:50px;
+}
+
+.profileTitle{
+    padding:80px;
+}
+
+#main-nav-bar{
+    background:rgba(0,180,255,1.0)
+}
+
+.navbar-dark .navbar-brand{
+    padding:0;
+    margin:0;
 }
