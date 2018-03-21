@@ -1,5 +1,20 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body{
     background:lightblue;
+    margin: 0 0 100px;
+}
+
+footer{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    overflow:hidden;
 }
 
 #main-nav-bar{
@@ -111,3 +126,18 @@ h4{
     padding:0;
     margin:0;
 }
+
+.xpProgress{
+    width:250px;
+    float:left;
+}
+
+#progressBarDetail{
+    float:right;
+}
+
+
+#passwordJoke{
+    display:none;
+}
+

@@ -12,7 +12,8 @@ var express         = require("express"),
     Answer          = require("./models/answer"),
     seedDB          = require("./seeds"),
     seedDBItems     = require("./itemSeeds"),
-    seedDBparties   = require("./partySeeds");
+    seedDBparties   = require("./partySeeds"),
+    middleware      = require("./middleware/index");
 
 //requiring routes
 var questionsRoutes = require("./routes/questions"),
@@ -48,9 +49,9 @@ mongoose.connect(process.env.DATABASEURL);
 //mongoose.connect("mongodb://BandsWithLegends:GrapeJelly@ds113749.mlab.com:13749/wepoll")
 
 //clear and seed DB
-// seedDB();
-// seedDBItems();
-// seedDBparties();
+seedDB();
+seedDBItems();
+seedDBparties();
 
 
 //calls this function on every route, gets userInfo
@@ -58,6 +59,8 @@ app.use(function(req, res, next){
     res.locals.currentUser = req.user;
     res.locals.error = req.flash("error");
     res.locals.success = req.flash("success");
+    res.locals.checkLevel = middleware.checkLevel;
+    res.locals.levelProgress = middleware.levelProgress;
     next();
 });
 

@@ -15,6 +15,10 @@ $(function(){
         $("#questionAnswered").show();
     });
     
+    $("#passwordJokeButton").on("click", function(){
+        $("#passwordJokeButton").hide()
+        $("#passwordJoke").show();
+    })
     //currently focused Answer
     // $(".answerDisplay").on("click", function(){
     //     alert("Are you sure your answer is " + $(this).text());

@@ -7,15 +7,18 @@ var UserSchema = new mongoose.Schema({
     password: String,
     image: String,
     settings: [],
-    party: [],
+    party: {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Party"
+    },
     questions: [],
     coins: Number,
+    experience: Number,
     inventory: [
         {
            type:mongoose.Schema.Types.ObjectId,
            ref: "Item"
-        }
-    ],
+        }],
     avatar:String
 })
 

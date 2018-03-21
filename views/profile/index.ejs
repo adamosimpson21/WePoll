@@ -8,13 +8,14 @@
         <div class="col-md-3">
             <h4>Avatar:</h4>
             <p class="lead"> <img class="avatarImage"src="<%=currentUser.avatar%>"></img></p>
+            <h2>Level: <%= checkLevel(currentUser.experience)%></h2>
         </div>
         <div class="col-md-9">
             <div class="">
                 <h1 class="text-center profileTitle"><%=currentUser.username%>'s Profile Page</h1>
                 <div class="list-group">
                     <h4 class="list-group-item">Username: <%=currentUser.username%></h4>
-                    <h4 class="list-group-item">Party: <%=currentUser.party%></h4>
+                    <h4 class="list-group-item">Party: <%=currentUser.party.name%></h4>
                     <h4 class="list-group-item">Number of questions Answered: <%=currentUser.questions.length%></h4>
                     <h4 class="list-group-item">Inventory: 
                         <% if (currentUser && currentUser.inventory[0]){ %>
@@ -23,7 +24,7 @@
                             <% }) %>
                         <% } %>
                     </h4>
-                    <h4 class="list-group-item">Password: Haha, Just Kidding</h4>    
+                    <h4 class="list-group-item">Password: <button id="passwordJokeButton">Show Password</button><span id="passwordJoke">Haha, Just Kidding</span></h4>    
                 </div>
             </div>
         </div>

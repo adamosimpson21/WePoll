@@ -52,11 +52,8 @@ middlewareObj.isLoggedIn= function(req, res, next){
 
 middlewareObj.logAnswer = function logAnswer(answer, question, user){
     var storedAnswer = [question._id,answer];
-    //increment tally
+    //increment answer tally
     for(var i=0; i<question.answers.length; i++){
-        //console.log(question.answers);
-        //console.log(answer);
-        //console.log("question.answers[i] is " + question.answers[i])
         if(question.answers[i][0]==(answer[0])){
             //question.answer[i] is current answer
             console.log("finding answer tally " + question.answers[i][1])
@@ -72,7 +69,11 @@ middlewareObj.logAnswer = function logAnswer(answer, question, user){
             //console.log(question);
         }
     }
-    //console.log(storedAnswer)
+    console.log(question.xpReward)
+    if(question.xpReward){
+        user.experience += question.xpReward
+        //Check for LevelUp
+    }
     user.questions.push(storedAnswer);
     user.save();
     //console.log(user);
@@ -89,6 +90,50 @@ middlewareObj.hasAnswered = function hasAnswered(user, question){
 }
     //exits loops and returns false if user has no answered question
     return false
+}
+
+//returns amount of total experience to reach a level
+middlewareObj.xpToLevel = function xpToLevel(level){
+    if(level<=1){
+        return 0;
+    } else if (level<=2){
+        return 100;
+    } else if (level<=3){
+        return 500;
+    } else if (level<=4){
+        return 1000;
+    } else if (level<=5){
+        return 1500;
+    } else if (level<=6){
+        return 2000;
+    } else if (level<=7){
+        return 2500;
+    } else {
+        return 3000;
+    }
+}
+
+
+//checks the User's level based on experience
+middlewareObj.checkLevel = function checkLevel(experience){
+    for (var i=1; i<10; i++){
+        //checks user's XP vs next level
+        if(experience<middlewareObj.xpToLevel(i)){
+            //returns level -1
+            return i-1;
+        }
+    }
+}
+
+
+//returns the User's percent progress to the next level
+middlewareObj.levelProgress = function levelProgress(experience){
+    //progress this level
+    var progress = (experience-middlewareObj.xpToLevel(middlewareObj.checkLevel(experience)))
+    //experience for next level
+    var nextLevel =(middlewareObj.xpToLevel(middlewareObj.checkLevel(experience) + 1)-(middlewareObj.xpToLevel(middlewareObj.checkLevel(experience))))
+    //divide progress/next and return percentage
+    return ((progress/nextLevel)*100)
 }
 
 module.exports = middlewareObj;

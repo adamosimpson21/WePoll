@@ -15,6 +15,7 @@ var questionSchema = new mongoose.Schema({
     description: String,
     xpReward: Number,
     education: String,
+    tags: [],
     answers: []
 })
 
