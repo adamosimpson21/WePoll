@@ -1,24 +1,43 @@
-<% include ./partials/header %>
-
-<!--Landing Page, Root Route -->
-<div class="container">
-    <header class="jumbotron">
-        <div class="container">
-            <h1>Welcome to the WePoll App</h1>
-            <h4><a class="btn btn-lg btn-warning" href="/about">What is WePoll? Click here to find out!</a></h4>
-        </div>
-    </header>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WePoll</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/landing.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+    </head>
+    <body>
+    
     <div class="container">
-        <h4 class="menuh4"><a href="/login" class="btn btn-lg btn-success">Make Sure to Log In Here</a></h4>
-        <h4 class="menuh4"><a href="/register" class="btn btn-lg btn-success">New? Register Here</a></h4>
-        <h4 class="menuh4"><a href="/mainmenu" class="btn btn-lg btn-success">Click here to go to Main Menu</a></h4>
+        <% if(error && error.length > 0){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+        <% } %>
     </div>
-</div>
+    
+    <div id="landing-header">
+ 		<h1>Welcome to WePoll!</h1>
+ 		<br>
+		<a href="/mainmenu" class="btn btn-lg btn-success">Check it out</a>
+    </div>
+    
+    <ul class="slideshow">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    
+    </body>
+</html>
 
 
 
 
-
-
-
-<% include ./partials/footer %>

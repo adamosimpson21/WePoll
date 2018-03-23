@@ -22,6 +22,7 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
     res.render("questions/new")
 })
 
+
 //Question Create Route
 router.post("/", middleware.isLoggedIn, function(req, res){
     //getting data from form
@@ -35,11 +36,13 @@ router.post("/", middleware.isLoggedIn, function(req, res){
     };
     var rating = 1;
     var xpReward = 100;
-    var answer1 = [req.body.answer1,0];
-    var answer2 = [req.body.answer2,0];
-    var answer3 = [req.body.answer3,0];
-    var newQuestion = {title:title, description:description,questionContent:questionContent,education:education,author:author, rating:rating, xpReward:xpReward, answers:[answer1,answer2,answer3]}
-    //console.log(newQuestion);
+    //variable Answer
+    var numberOfAnswers = req.body.numberOfAnswers
+    var answers = []
+    for(var i=0; i<numberOfAnswers; i++){
+        answers.push([req.body.answer[i],0])
+    }
+    var newQuestion = {title:title, description:description,questionContent:questionContent,education:education,author:author, rating:rating, xpReward:xpReward, answers:answers}
     //create a new question and save to DB
     Question.create(newQuestion, function(err, questionVar){
         if (err){
@@ -98,7 +101,7 @@ router.post("/:id", middleware.isLoggedIn, function(req, res){
         } else {
             //console.log(middleware.hasAnswered(req.user, foundQuestion));
             var newAnswer=[req.body.answerChoice,0];
-            middleware.logAnswer(newAnswer, foundQuestion, req.user)
+            middleware.logAnswer(newAnswer, foundQuestion, req.user, req)
             res.redirect("/questions/"+ req.params.id+"/results");
         }
     })

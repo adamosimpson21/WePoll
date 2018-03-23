@@ -35,11 +35,6 @@ footer{
     margin-right:auto;
 }
 
-h4{
-    /*margin-left: auto;*/
-    /*margin-right: auto;*/
-}
-
 #questionNewHeader{
     margin:50px auto 50px auto;
 }
@@ -48,16 +43,7 @@ h4{
     background:green;
 }
 
-.answerList{
-    list-style: none;
-    padding-left:0;
-}
 
-.answerList li{
-    padding:10px 0 10px 0;
-    margin:auto;
-    width:200px;
-}
 
 .questionTitle{
     width:500px;
@@ -141,3 +127,21 @@ h4{
     display:none;
 }
 
+.btn-group-vertical .btn, .btn-group-vertical .btn-group{
+    ;
+}
+
+.answerParent{
+    width:100%;
+}
+
+.answerList{
+    list-style: none;
+    padding-left:0;
+}
+
+.answerList li{
+    padding:10px 0 10px 0;
+    margin:auto;
+    width:200px;
+}

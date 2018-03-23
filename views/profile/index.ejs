@@ -15,7 +15,11 @@
                 <h1 class="text-center profileTitle"><%=currentUser.username%>'s Profile Page</h1>
                 <div class="list-group">
                     <h4 class="list-group-item">Username: <%=currentUser.username%></h4>
-                    <h4 class="list-group-item">Party: <%=currentUser.party.name%></h4>
+                    <h4 class="list-group-item">Party: <%if(currentUser.party){ %>
+                                                            <%= currentUser.party.name %>
+                                                        <% }else{ %>
+                                                            You haven't joined a Party yet
+                                                        <% } %></h4>
                     <h4 class="list-group-item">Number of questions Answered: <%=currentUser.questions.length%></h4>
                     <h4 class="list-group-item">Inventory: 
                         <% if (currentUser && currentUser.inventory[0]){ %>

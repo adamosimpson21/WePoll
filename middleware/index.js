@@ -50,33 +50,30 @@ middlewareObj.isLoggedIn= function(req, res, next){
     res.redirect("/login");
 };
 
-middlewareObj.logAnswer = function logAnswer(answer, question, user){
+middlewareObj.logAnswer = function logAnswer(answer, question, user, req){
     var storedAnswer = [question._id,answer];
     //increment answer tally
     for(var i=0; i<question.answers.length; i++){
         if(question.answers[i][0]==(answer[0])){
-            //question.answer[i] is current answer
-            console.log("finding answer tally " + question.answers[i][1])
             question.answers[i][1] =question.answers[i][1]+1;
-            console.log("finding answer tally " + question.answers[i][1])
             Question.findByIdAndUpdate(question._id, question, function(err, foundQuestion2){
                 if(err){
                     console.log(err)
-                } else {
-                    console.log("foundQuestion2 is " + foundQuestion2)
                 }
             })
-            //console.log(question);
         }
     }
-    console.log(question.xpReward)
     if(question.xpReward){
+        var userLevelBefore = middlewareObj.checkLevel(user.experience)
         user.experience += question.xpReward
         //Check for LevelUp
+        var userLevelAfter = middlewareObj.checkLevel(user.experience)
+        if(userLevelBefore!==userLevelAfter){
+            req.flash("success", "You've level up to level " + userLevelAfter)
+        }
     }
     user.questions.push(storedAnswer);
     user.save();
-    //console.log(user);
 }
 
 //Checks to see if a user has Answered a Question

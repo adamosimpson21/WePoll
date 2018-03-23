@@ -12,14 +12,12 @@
     </div>
     <div>
         <form action="/questions/<%=question._id%>" method="POST">
-            <ul class="answerList">
+            <ul class="btn-group-vertical" role="group">
                 <!--%= console.log(question)%>-->
                 <% question.answers.forEach(function(answer, index){ %>
-                    <div class="form-check">
-                        <input class="form-check-input answerDisplay" type="radio" name="answerChoice" id="answerChoice<%=index%>" value="<%=answer[0]%>">
-                        <label class="form-check-label" for="exampleRadios<%=index%>">
-                            <!--%=console.log(answer)%>-->
-                            <%=answer[0]%>
+                    <div class="answerParent">
+                        <input class=" answerDisplay btn btn-primary btn-lg" type="button" name="answerChoice" id="answerChoice<%=index%>" value="<%=answer[0]%>">
+                        <label class="" for="exampleRadios<%=index%>">
                         </label>
                     </div>
                 <% }) %>

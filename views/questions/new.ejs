@@ -6,50 +6,48 @@
         <h1 id="questionNewHeader">Create a new Question</h1>
     </div>
     <div>
-        <form class="container form-group" action="/questions" method="POST">
+        <form class="container form-group" id="questionForm" action="/questions" method="POST" required>
             <div class="row">
                 <div class="col-lg-3"></div>
                 <div class="col-lg-6 form-group">
-                     <input class="form-control" type="text" placeholder="Title" name="title"></input>
+                     <input class="form-control" type="text" placeholder="Title" name="title" required></input>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-3"></div>
                 <div class="col-lg-6 form-group">
-                    <input class="form-control" type="text" placeholder="What is your question?" name="questionContent"></input>
+                    <input class="form-control" type="text" placeholder="What is your question?" name="questionContent" required></input>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-3"></div>
                 <div class="col-lg-6 form-group">
-                    <input class="form-control" type="text" placeholder="Describe your Question" name="description"></input>
+                    <input class="form-control" type="text" placeholder="Describe your Question" name="description" required></input>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-3"></div>
                 <div class="col-lg-6 form-group">
-                     <input class="form-control" type="url" placeholder="Full link to Educational Resource" name="education"></input>
+                     <input class="form-control" type="url" placeholder="Full link to Educational Resource" name="education" required></input>
                 </div>
             </div>
+            <!--variable answer PsuedoCode-->
             <div class="row">
                 <div class="col-lg-3"></div>
                 <div class="col-lg-6 form-group">
-                     <input class="form-control" type="text" placeholder="Answer1" name="answer1"></input>
+                     <button class="form-control" type="button" id="addAnswer" required>Click here to add more Answer Slots</button>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-3"></div>
-                <div class="col-lg-6 form-group">
-                     <input class="form-control" type="text" placeholder="Answer2" name="answer2"></input>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3"></div>
-                <div class="col-lg-6 form-group">
-                     <input class="form-control" type="text" placeholder="Answer3" name="answer3"></input>
-                </div>
-            </div>
-            <div class="row">
+            <%for(var i=0;i<3;i++){ %>
+                <div class="row">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-6 form-group">
+                         <input class="form-control" type="text" placeholder="Answer<%=i+1%>" name="answer[<%=i+1%>]" id="answer[<%=i+1%>]" required></input>
+                    </div>
+                </div> 
+            <% } %>
+            <input type="hidden" id="numberOfAnswers" name="numberOfAnswers" value="3"></input>
+            <div class="row" id="questionSubmit">
                 <div class="col-lg-3"></div>
                 <div class="col-lg-6 form-group">
                      <button class="form-control">Submit</button>
@@ -57,7 +55,9 @@
             </div>
         </form>
     </div>
+    <p>Note: if you add too many Answers, refresh the page</p>
 </div>
+
 
 
 <% include ../partials/footer %>

@@ -43,7 +43,7 @@ router.post("/register", function(req, res){
         }
         passport.authenticate("local")(req, res, function(){
             req.flash("success", "Welcome to WePoll "+ user.username)
-            console.log(user)
+            // console.log(user)
             res.redirect("/questions");
         })
     })
