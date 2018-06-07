@@ -24,9 +24,7 @@ router.post("/login", passport.authenticate("local",
         failureRedirect:"/login",
         successFlash: "Welcome to WePoll",
         failureFlash: true
-    }), function(req, res){
-
-});
+    }));
 
 //Register Index Route
 router.get("/register", function(req, res){
@@ -35,15 +33,16 @@ router.get("/register", function(req, res){
 
 //SignUp Logic
 router.post("/register", function(req, res){
-    var newUser = new User({username:req.body.username, coins:5, avatar:"https://freeclipartimage.com//storage/upload/human-clipart/human-clipart-15.png", experience:0});
+    var newUser = new User({
+                            username:req.body.username
+                        });
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             req.flash("error", err.message);
             res.render("register");
         }
         passport.authenticate("local")(req, res, function(){
-            req.flash("success", "Welcome to WePoll "+ user.username)
-            // console.log(user)
+            req.flash("success", `Welcome to WePoll ${user.username}`);
             res.redirect("/questions");
         })
     })

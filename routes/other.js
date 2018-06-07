@@ -10,14 +10,10 @@ var express = require("express"),
 //function for checking if a user has an Item
 function userHasItem(user, item){
     for(var i=0;i<user.inventory.length;i++){
-        console.log("user.inventory[i] = " + user.inventory[i])
-        console.log("item._id = " + item._id)
         if(user.inventory[i].equals(item._id)){
-            console.log("returning true")
             return true
         }
     }
-    console.log("returning false");
     return false;
 }
 
@@ -32,7 +28,6 @@ router.get("/shop", middleware.isLoggedIn, function(req, res){
                     console.log(err);
                     req.flash("error", err.message);
                 } else {
-                    console.log("req.user.inventory = " + foundUser.inventory)
                     res.render("shop/index", {items:allItems, currentUser:foundUser});
                 }
             })
@@ -44,14 +39,7 @@ router.get("/shop", middleware.isLoggedIn, function(req, res){
 router.post("/shop", middleware.isLoggedIn, function(req, res){
     req.user.coins += parseInt(req.body.coinNumber);
     req.user.save();
-    Item.find({}, function(err, allItems){
-        if(err){
-            console.log(err);
-            req.flash("error", err.message);
-        } else {
-            res.redirect("/shop");
-        }
-    })
+    res.redirect("/shop");
 })
 
 //Shop Buy Item Route
@@ -76,15 +64,7 @@ router.post("/shop/buy", middleware.isLoggedIn, function(req, res){
             }
         }
     })
-    //console.log("req.user.inventory = " + req.user.inventory)
-    Item.find({}, function(err, allItems){
-        if(err){
-            console.log(err);
-            req.flash("error", err.message);
-        } else {
-            res.redirect("/shop");
-        }
-    })
+    res.redirect("/shop");
 })
 
 //Settings Index Route
@@ -138,7 +118,6 @@ router.post("/party", middleware.isLoggedIn, function(req, res){
         } else {
             //checks to see if User has a party and it's this party
             if(req.user.party&&req.user.party.equals(foundParty._id)){
-                console.log("User party id = foundParty.id")
                 req.flash("error", "You're already a member of this party")
                 res.redirect("party/" + foundParty._id)
             } else {

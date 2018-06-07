@@ -88,19 +88,11 @@ function seedDB(){
             console.log("Removed Questions")
             data.forEach(function(seed){
                 Question.create(seed, function(err, question){
-                if(err){
-                    console.log(err);
-                } else {
-                    console.log("added a question");
-                    //middleware
-                    // var answer1 = "First Answer"
-                    // var answer2 = "Second Answer"
-                    // var answer3 = "Third Answer"
-                    // middleware.createAnswer2(answer1,question);
-                    // middleware.createAnswer2(answer2,question);
-                    // middleware.createAnswer2(answer3,question);
-                    //console.log("Answers Created");
-                }
+                    if(err){
+                        console.log(err);
+                    } else {
+                        console.log("added a question");
+                    }
                 })
             })
         }

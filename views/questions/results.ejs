@@ -16,9 +16,7 @@
     <div>
         <h4>Current Vote Tally</h4>
         <ul class="answerList">
-            <%= console.log(question)%>
             <% question.answers.forEach(function(answer, index){ %>
-            <%console.log("answer is "+ answer)%>
                <li><%=answer[0]%> : <%=answer[1]%></li>
             <% }) %>
         </ul>

@@ -42,6 +42,36 @@ middlewareObj.createAnswer= function createAnswer2(answer, question){
     question.save();
 }
 
+middlewareObj.createQuestion = function createQuestion(req){
+    var title = req.body.title;
+    var description = req.body.description;
+    var questionContent = req.body.questionContent;
+    var education = req.body.education;
+    var author = {
+        id:req.user._id,
+        username:req.user.username
+    };
+    var rating = 1;
+    var xpReward = 100;
+    //variable Answer
+    var numberOfAnswers = req.body.numberOfAnswers
+    var answers = []
+    for(var i=0; i<numberOfAnswers; i++){
+        answers.push([req.body.answer[i],0])
+    }
+    var newQuestion = {
+                        title, 
+                        description, 
+                        questionContent, 
+                        education, 
+                        author,  
+                        rating, 
+                        xpReward, 
+                        answers
+                    }
+    return newQuestion;
+}
+
 middlewareObj.isLoggedIn= function(req, res, next){
     if(req.isAuthenticated()){
         return next();
@@ -50,11 +80,13 @@ middlewareObj.isLoggedIn= function(req, res, next){
     res.redirect("/login");
 };
 
+
+
 middlewareObj.logAnswer = function logAnswer(answer, question, user, req){
     var storedAnswer = [question._id,answer];
     //increment answer tally
     for(var i=0; i<question.answers.length; i++){
-        if(question.answers[i][0]==(answer[0])){
+        if(question.answers[i][0]==(answer)){
             question.answers[i][1] =question.answers[i][1]+1;
             Question.findByIdAndUpdate(question._id, question, function(err, foundQuestion2){
                 if(err){
