@@ -3,7 +3,6 @@ var Question = require("../models/question");
 var middlewareObj={};
 var mongoose = require("mongoose");
 var express = require("express");
-var Answer = require("../models/answer");
 
 
 //Array Equals method
@@ -47,12 +46,7 @@ middlewareObj.createQuestion = function createQuestion(req){
     var description = req.body.description;
     var questionContent = req.body.questionContent;
     var education = req.body.education;
-    var author = {
-        id:req.user._id,
-        username:req.user.username
-    };
-    var rating = 1;
-    var xpReward = 100;
+    var author = req.user._id;
     //variable Answer
     var numberOfAnswers = req.body.numberOfAnswers
     var answers = []
@@ -64,9 +58,7 @@ middlewareObj.createQuestion = function createQuestion(req){
                         description, 
                         questionContent, 
                         education, 
-                        author,  
-                        rating, 
-                        xpReward, 
+                        author,
                         answers
                     }
     return newQuestion;

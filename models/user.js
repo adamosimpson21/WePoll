@@ -30,6 +30,10 @@ var UserSchema = new mongoose.Schema({
                 type:String,
                 default: "https://freeclipartimage.com//storage/upload/human-clipart/human-clipart-15.png"
             },
+    createdAt:{
+                type:Date,
+                default:Date.now
+            }
 })
 
 UserSchema.plugin(passportLocalMongoose);

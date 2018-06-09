@@ -14,4 +14,15 @@ getAnswer=function(){
         }
         return false
     }
+    
+makePieChart = function(){
+    d3.select("#answerPieChart")
+            .selectAll("li")
+            .data(question.answers)
+            .enter()
+            .append("li")
+                .text(function(d){
+                    return d;
+                })
+}
 %>

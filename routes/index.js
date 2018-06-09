@@ -42,7 +42,7 @@ router.post("/register", function(req, res){
             res.render("register");
         }
         passport.authenticate("local")(req, res, function(){
-            req.flash("success", `Welcome to WePoll ${user.username}`);
+            req.flash("success", `Welcome to WePoll ${user.username}. Your account was created at ${user.createdAt}` );
             res.redirect("/questions");
         })
     })

@@ -21,6 +21,7 @@
                                                             You haven't joined a Party yet
                                                         <% } %></h4>
                     <h4 class="list-group-item">Number of questions Answered: <%=currentUser.questions.length%></h4>
+                    <h4 class="list-group-item">Created At: <%=currentUser.createdAt.toDateString()%></h4>
                     <h4 class="list-group-item">Inventory: 
                         <% if (currentUser && currentUser.inventory[0]){ %>
                             <% currentUser.inventory.forEach(function(item, i){ %>

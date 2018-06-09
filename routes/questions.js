@@ -1,7 +1,6 @@
 var express = require("express");
 var router = express.Router();
 var Question = require("../models/question");
-var Answer = require("../models/answer");
 var middleware = require("../middleware/index");
 
 //Question Index Route
@@ -41,7 +40,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
 
 //Questions Show Route
 router.get("/:id", middleware.isLoggedIn, function(req, res){
-    Question.findById(req.params.id).exec(function(err, foundQuestion){
+    Question.findById(req.params.id).populate("author").exec(function(err, foundQuestion){
         if(err){
             console.log(err)
             req.flash("error", err.message);
@@ -59,7 +58,7 @@ router.get("/:id", middleware.isLoggedIn, function(req, res){
 
 //Question Education get route
 router.get("/:id/education", middleware.isLoggedIn, function(req, res){
-    Question.findById(req.params.id).exec(function(err, foundQuestion){
+    Question.findById(req.params.id).populate("author").exec(function(err, foundQuestion){
         if(err){
             console.log(err);
         } else {
@@ -70,7 +69,7 @@ router.get("/:id/education", middleware.isLoggedIn, function(req, res){
 
 // Answer Q post route
 router.post("/:id", middleware.isLoggedIn, function(req, res){
-    Question.findById(req.params.id).exec(function(err, foundQuestion){
+    Question.findById(req.params.id).populate("author").exec(function(err, foundQuestion){
         if(err){
             console.log(err.message);
             res.redirect(`/questions/${req.params.id}`);
@@ -84,7 +83,7 @@ router.post("/:id", middleware.isLoggedIn, function(req, res){
 
 //Question Results Route
 router.get("/:id/results", middleware.isLoggedIn, function(req, res){
-    Question.findById(req.params.id).exec(function(err, foundQuestion){
+    Question.findById(req.params.id).populate("author").exec(function(err, foundQuestion){
         if(err){
             console.log(err);
             res.redirect("/questions")

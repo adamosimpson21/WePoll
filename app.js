@@ -9,11 +9,11 @@ var express         = require("express"),
     methodOverride  = require("method-override"),
     User            = require("./models/user"),
     Question        = require("./models/question"),
-    Answer          = require("./models/answer"),
     seedDB          = require("./seeds"),
     seedDBItems     = require("./itemSeeds"),
     seedDBparties   = require("./partySeeds"),
     middleware      = require("./middleware/index");
+
 
 //requiring routes
 var questionsRoutes = require("./routes/questions"),
@@ -22,7 +22,7 @@ var questionsRoutes = require("./routes/questions"),
 
 //Config
 app.use(bodyParser.urlencoded({extended:true}));
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(require('path').join(__dirname,'/public')));
 app.use(methodOverride("_method"));
 app.use(flash());
 app.set("view engine", "ejs");
@@ -42,7 +42,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 //start server
-//process.env.DATABASEURL = mongodb://localhost/wepoll
+// process.env.DATABASEURL = mongodb://localhost/wepoll
 // export DATABASEURL=mongodb://localhost/wepoll
 // console.log(process.env.DATABASEURL)
 mongoose.connect(process.env.DATABASEURL);

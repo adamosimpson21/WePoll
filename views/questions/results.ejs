@@ -13,19 +13,29 @@
     <div>
         <h4>You've voted <%= getAnswer()%> to <%=question.title%></h4>
     </div>
-    <div>
-        <h4>Current Vote Tally</h4>
-        <ul class="answerList">
-            <% question.answers.forEach(function(answer, index){ %>
-               <li><%=answer[0]%> : <%=answer[1]%></li>
-            <% }) %>
-        </ul>
+    <div style="display:flex; flex-wrap: wrap;">
+        <div class="col-lg-6">
+            <h4>Current Vote Tally</h4>
+            <ul class="answerList">
+                <% question.answers.forEach(function(answer, index){ %>
+                   <li><span class="resultsText"><%=answer[0]%></span> : <span class="resultsNumber"><%=answer[1]%></span></li>
+                <% }) %>
+            </ul>
+        </div>
+        <div class="col-lg-6">
+            <p>Now in graph form!</p>
+            <svg version="1.1"
+                baseProfile="full"
+                xmlns="http://www.w3.org/2000/svg"
+                id="answerPieChart">
+            </svg>
+        </div>
     </div>
     <div>
        <a href="/questions">Click here to go back to the Questions Page</a>
     </div>
-    <%if(question.author!==undefined){%>
-        <div>This Question was created by <%=question.author.username%></div>
+    <%if(question.author!==undefined && question.createdAt!==undefined){%>
+        <div>This Question was created by <%=question.author.username%> at <%=question.createdAt.toDateString()%></div>
     <% } %>
 </div>
 
