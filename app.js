@@ -49,7 +49,7 @@ mongoose.connect(process.env.DATABASEURL);
 //mongoose.connect("mongodb://BandsWithLegends:GrapeJelly@ds113749.mlab.com:13749/wepoll")
 
 //clear and seed DB
-// seedDB();
+seedDB();
 // seedDBItems();
 // seedDBparties();
 
