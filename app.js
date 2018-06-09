@@ -45,11 +45,11 @@ passport.deserializeUser(User.deserializeUser());
 // process.env.DATABASEURL = mongodb://localhost/wepoll
 // export DATABASEURL=mongodb://localhost/wepoll
 // console.log(process.env.DATABASEURL)
-mongoose.connect(process.env.DATABASEURL);
-//mongoose.connect("mongodb://BandsWithLegends:GrapeJelly@ds113749.mlab.com:13749/wepoll")
+// mongoose.connect(process.env.DATABASEURL);
+mongoose.connect("mongodb://BandsWithLegends:GrapeJelly@ds113749.mlab.com:13749/wepoll")
 
 //clear and seed DB
-seedDB();
+// seedDB();
 // seedDBItems();
 // seedDBparties();
 
