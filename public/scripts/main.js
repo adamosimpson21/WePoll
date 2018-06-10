@@ -15,10 +15,18 @@ $(function(){
         $("#questionAnswered").show();
     });
     
+    //password Joke
     $("#passwordJokeButton").on("click", function(){
         $("#passwordJokeButton").hide()
         $("#passwordJoke").show();
     })
+    
+    //expand Profile for Demographics 
+    $("#showDemographics").on("click", function(){
+        $("#showDemographics").hide()
+        $("#profileDemographics").show();
+    })
+    
     
     //Variable number of answers on Create Question page
     var answerNumber=3
@@ -40,6 +48,9 @@ $(function(){
     $('a[href="' + location.pathname + '"]').closest('li').addClass('active'); 
     
     
+    
+    
+    
     // get results data from results page
     var realData = [];
     $.each($('.answerList>li'), function(i,li){
@@ -55,6 +66,8 @@ $(function(){
     
     var width = 300;
     var height = 300;
+    
+    
     //Question results graph
     // function makePieChart(data){
     var colorScale = d3.scaleOrdinal()
@@ -63,7 +76,7 @@ $(function(){
                             
     var tooltip = d3.select('body')
                     .append('div')
-                        .classed('tooltip', true);
+                        .classed('tooltipResultsGraph', true);
                         
     tooltip.append('div')                                           
           .classed('label', true);

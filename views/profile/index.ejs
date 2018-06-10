@@ -5,32 +5,45 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
-            <h4>Avatar:</h4>
+        <div class="col-md-2">
+            <h5>Avatar:</h5>
             <p class="lead"> <img class="avatarImage"src="<%=currentUser.avatar%>"></img></p>
-            <h2>Level: <%= checkLevel(currentUser.experience)%></h2>
+            <h5>Level: <%= checkLevel(currentUser.experience)%></h5>
         </div>
-        <div class="col-md-9">
-            <div class="">
-                <h1 class="text-center profileTitle"><%=currentUser.username%>'s Profile Page</h1>
-                <div class="list-group">
-                    <h4 class="list-group-item">Username: <%=currentUser.username%></h4>
-                    <h4 class="list-group-item">Party: <%if(currentUser.party){ %>
-                                                            <%= currentUser.party.name %>
-                                                        <% }else{ %>
-                                                            You haven't joined a Party yet
-                                                        <% } %></h4>
-                    <h4 class="list-group-item">Number of questions Answered: <%=currentUser.questions.length%></h4>
-                    <h4 class="list-group-item">Created At: <%=currentUser.createdAt.toDateString()%></h4>
-                    <h4 class="list-group-item">Inventory: 
-                        <% if (currentUser && currentUser.inventory[0]){ %>
-                            <% currentUser.inventory.forEach(function(item, i){ %>
-                                <img class="inventoryImage itemDisplayProfile" src="<%=currentUser.inventory[i].image%>"></img>
-                            <% }) %>
-                        <% } %>
-                    </h4>
-                    <h4 class="list-group-item">Password: <button id="passwordJokeButton">Show Password</button><span id="passwordJoke">Haha, Just Kidding</span></h4>    
-                </div>
+        <div class="col-md-10">
+            <h3 class="text-center profileTitle"><%=currentUser.username%>'s Profile Page</h1>
+            <div class="list-group">
+                <h5 class="list-group-item">Username: <%=currentUser.username%></h5>
+                <h5 class="list-group-item">Party: <%if(currentUser.party){ %>
+                                                        <%= currentUser.party.name %>
+                                                    <% }else{ %>
+                                                        You haven't joined a Party yet
+                                                    <% } %></h5>
+                <h5 class="list-group-item">Number of questions Answered: <%=currentUser.questions.length%></h5>
+                <h5 class="list-group-item">Created At: <%=currentUser.createdAt.toDateString()%></h5>
+                <h5 class="list-group-item">Inventory: 
+                    <% if (currentUser && currentUser.inventory[0]){ %>
+                        <% currentUser.inventory.forEach(function(item, i){ %>
+                            <img class="inventoryImage itemDisplayProfile" src="<%=currentUser.inventory[i].image%>"></img>
+                        <% }) %>
+                    <% } %>
+                </h5>
+                <h5 class="list-group-item">Password: <button id="passwordJokeButton">Show Password</button><span id="passwordJoke">Haha, Just Kidding</span></h5>    
+            </div>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-warning" id="showDemographics">Show Demographics info</button>
+        </div>
+        <div class="col-md-10" id="profileDemographics">
+            <div class="list-group">
+                <h5 class="list-group-item">Demographics <a href="/profile/update"><button class="btn btn-primary">Update Demographics</button></a></h5>
+                <h5 class="list-group-item">Age: <%=currentUser.age%></h5>
+                <h5 class="list-group-item">Race: <%=currentUser.race %></h5>
+                <h5 class="list-group-item">Est. Income: <%=currentUser.income%></h5>
+                <h5 class="list-group-item">Gender: <%=currentUser.gender%></h5>
+                <h5 class="list-group-item">Education <%=currentUser.education%></h5>
+                <h5 class="list-group-item">Location: <%=currentUser.location%></h5>
+                <h5 class="list-group-item">Household Size: <%=currentUser.familySize%></h5>
             </div>
         </div>
     </div>

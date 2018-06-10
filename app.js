@@ -42,11 +42,12 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 //start server
-// process.env.DATABASEURL = mongodb://localhost/wepoll
 // export DATABASEURL=mongodb://localhost/wepoll
 // console.log(process.env.DATABASEURL)
+// process.env.DATABASEURL = "mongodb://localhost/wepoll";
 // mongoose.connect(process.env.DATABASEURL);
-mongoose.connect("mongodb://BandsWithLegends:GrapeJelly@ds113749.mlab.com:13749/wepoll")
+mongoose.connect("mongodb://BandsWithLegends:GrapeJelly@ds113749.mlab.com:13749/wepoll");
+
 
 //clear and seed DB
 // seedDB();

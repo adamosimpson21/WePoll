@@ -132,6 +132,17 @@ router.post("/party", middleware.isLoggedIn, function(req, res){
 
 })
 
+//Update Profile Get Route
+router.get("/profile/update", middleware.isLoggedIn, function(req, res){
+    User.findById(req.user._id).populate("inventory").populate("party").exec(function(err, foundUser){
+        if(err){
+            console.log(err)
+        } else {
+            res.render("profile/update", {currentUser:foundUser});        
+        }
+    })
+})
+
 //Profile Index Route
 router.get("/profile", middleware.isLoggedIn, function(req, res){
     User.findById(req.user._id).populate("inventory").populate("party").exec(function(err, foundUser){
@@ -139,6 +150,41 @@ router.get("/profile", middleware.isLoggedIn, function(req, res){
             console.log(err)
         } else {
             res.render("profile/index", {currentUser:foundUser});        
+        }
+    })
+})
+
+
+//Update Profile Post Route
+router.post("/profile/update", middleware.isLoggedIn, function(req, res){
+    //update User Logic
+    var updateParams = {};
+    if(req.body.age){
+        updateParams.age = +req.body.age;
+    }
+    if(req.body.race){
+        updateParams.race = req.body.race;
+    }
+    if(req.body.income){
+        updateParams.income = +req.body.income;
+    }
+    if(req.body.gender){
+        updateParams.gender = req.body.gender;
+    }
+    if(req.body.education){
+        updateParams.education = req.body.education;
+    }
+    if(req.body.location){
+        updateParams.location = req.body.location;
+    }
+    if(req.body.familySize){
+        updateParams.familySize = +req.body.familySize;
+    }
+    User.findByIdAndUpdate(req.user._id, updateParams).exec(function(err, foundUser){
+        if(err){
+            console.log(err)
+        } else {
+            res.redirect("/profile");
         }
     })
 })
