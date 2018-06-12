@@ -47,11 +47,11 @@ passport.deserializeUser(User.deserializeUser());
 // console.log(process.env.DATABASEURL)
 
 //use for cloud9
-process.env.DATABASEURL = "mongodb://localhost/wepoll";
-mongoose.connect(process.env.DATABASEURL);
+// process.env.DATABASEURL = "mongodb://localhost/wepoll";
+// mongoose.connect(process.env.DATABASEURL);
 
 //use for deploying to heroku
-// mongoose.connect("mongodb://BandsWithLegends:GrapeJelly@ds113749.mlab.com:13749/wepoll");
+mongoose.connect("mongodb://BandsWithLegends:GrapeJelly@ds113749.mlab.com:13749/wepoll");
 
 
 //clear and seed DB
