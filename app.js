@@ -57,7 +57,7 @@ mongoose.connect("mongodb://BandsWithLegends:GrapeJelly@ds113749.mlab.com:13749/
 //clear and seed DB
 // seedDB();
 //seed Users currently puts x! instead of x users in DB, be careful
-seedUsers(7);
+// seedUsers(7);
 // seedDBItems();
 // seedDBparties();
 
