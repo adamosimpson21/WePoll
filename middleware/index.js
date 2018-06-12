@@ -96,7 +96,8 @@ middlewareObj.logAnswer = function logAnswer(answer, question, user, req){
             req.flash("success", "You've level up to level " + userLevelAfter)
         }
     }
-    user.questions.push(storedAnswer);
+    user.questions.push(question._id);
+    user.answers.push(storedAnswer);
     user.save();
 }
 
@@ -104,7 +105,7 @@ middlewareObj.logAnswer = function logAnswer(answer, question, user, req){
 middlewareObj.hasAnswered = function hasAnswered(user, question){
     for(var i=0; i<user.questions.length; i++){
     //loops through IDs of question that user has answered, compares with current questionID
-    if (user.questions[i][0].equals(question._id)){
+    if (user.questions[i].equals(question._id)){
         //returns true if user has answered question
         return true
     }

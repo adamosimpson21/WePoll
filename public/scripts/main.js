@@ -48,10 +48,7 @@ $(function(){
     $('a[href="' + location.pathname + '"]').closest('li').addClass('active'); 
     
     
-    
-    
-    
-    // get results data from results page
+    // get results data from results page NOT using Query
     var realData = [];
     $.each($('.answerList>li'), function(i,li){
         if(li.children[0].className=="resultsText"){
@@ -62,7 +59,7 @@ $(function(){
         }
         realData.push([resultsText,resultsNumber])
     })
-    console.log(realData);
+    // console.log(realData);
     
     var width = 300;
     var height = 300;

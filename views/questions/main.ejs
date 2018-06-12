@@ -2,13 +2,13 @@
 
 
 getAnswer=function(){
-        for(var i=0; i<currentUser.questions.length; i++){
-            // console.log(currentUser.questions)
-            if(currentUser.questions[i][0].equals(question._id)){
-                if(currentUser.questions[i][1]==null){
+        for(var i=0; i<currentUser.answers.length; i++){
+            // console.log(currentUser.answers)
+            if(currentUser.answers[i][0].equals(question._id)){
+                if(currentUser.answers[i][1]==null){
                     return "There has been an error, error #1";
                 } else {
-                    return currentUser.questions[i][1];
+                    return currentUser.answers[i][1];
                 }
             }
         }

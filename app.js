@@ -10,6 +10,7 @@ var express         = require("express"),
     User            = require("./models/user"),
     Question        = require("./models/question"),
     seedDB          = require("./seeds"),
+    seedUsers       = require("./userSeeds"),
     seedDBItems     = require("./itemSeeds"),
     seedDBparties   = require("./partySeeds"),
     middleware      = require("./middleware/index");
@@ -44,13 +45,19 @@ passport.deserializeUser(User.deserializeUser());
 //start server
 // export DATABASEURL=mongodb://localhost/wepoll
 // console.log(process.env.DATABASEURL)
-// process.env.DATABASEURL = "mongodb://localhost/wepoll";
-// mongoose.connect(process.env.DATABASEURL);
-mongoose.connect("mongodb://BandsWithLegends:GrapeJelly@ds113749.mlab.com:13749/wepoll");
+
+//use for cloud9
+process.env.DATABASEURL = "mongodb://localhost/wepoll";
+mongoose.connect(process.env.DATABASEURL);
+
+//use for deploying to heroku
+// mongoose.connect("mongodb://BandsWithLegends:GrapeJelly@ds113749.mlab.com:13749/wepoll");
 
 
 //clear and seed DB
 // seedDB();
+//seed Users currently puts x! instead of x users in DB, be careful
+seedUsers(7);
 // seedDBItems();
 // seedDBparties();
 
@@ -74,3 +81,4 @@ app.use("/", otherRoutes);
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("WePoll Server started!");
 });
+

@@ -11,7 +11,13 @@ var UserSchema = new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:"Party"
     },
-    questions: [],
+    questions: [
+                    {
+                        type:mongoose.Schema.Types.ObjectId,
+                        ref:"Question"
+                    }
+                ],
+    answers:[],
     coins: { 
                 type:Number,
                 default: 5

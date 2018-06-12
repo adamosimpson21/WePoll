@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var Question = require("../models/question");
+var User = require("../models/user");
 var middleware = require("../middleware/index");
 
 //Question Index Route
@@ -88,9 +89,21 @@ router.get("/:id/results", middleware.isLoggedIn, function(req, res){
             console.log(err);
             res.redirect("/questions")
         } else {
-            res.render("questions/results", {question:foundQuestion});
+            // psuedocode for sending User demographic info into results page
+            
+            // User.find({questions: foundQuestion._id }).exec(function(err, foundUsers){
+            //     if(err){
+            //         console.log(err);
+            //         req.flash("error", `Error finding Users: ${err.message}`);
+            //         res.render("questions/results", {question:foundQuestion})
+            //     } else {
+            //         console.log(`foundUsers.length is ${foundUsers.length}`)
+                    // res.render("questions/results", {question:foundQuestion}, {users:foundUsers});
+                    res.render("questions/results", {question:foundQuestion});
+                // }
+            }
         }
-    })
+    )
 })
 
 //Question Edit Route
