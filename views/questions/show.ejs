@@ -1,0 +1,41 @@
+<% include ../partials/header %>
+
+
+<!--Question show route-->
+
+<div class="container">
+    <div class="container questionTitle">
+        <h1><%=question.title%></h1>
+    </div>
+    <div>
+        <h1><%=question.questionContent%></h1>
+    </div>
+    <div>
+        <form action="/questions/<%=question._id%>" method="POST">
+            <ul class="btn-group-vertical" role="group" >
+                <select  name="answerChoice" >
+                    <!--%= console.log(question)%>-->
+                    <% question.answers.forEach(function(answer, index){ %>
+                        <div class="answerParent">
+                            <option class="answerDisplay btn btn-primary btn-lg" type="button" id="answerChoice<%=index%>" value="<%=answer[0]%>"><%=answer[0]%></option>
+                            <label class="" for="exampleRadios<%=index%>">
+                            </label>
+                        </div>
+                    <% }) %>
+                </select>
+            </ul>
+            <div id="questionAnswered">
+                <!--Show Submit after Q answered-->
+                <button class="questionSubmit">Lock It In!</button>
+            </div>
+        </form>
+        <%if(question.author!==undefined){%>
+            <div>This Question was created by <%=question.author.username%></div>
+        <% } %>
+    </div>
+</div>
+
+
+<% include ../partials/footer %>
+
+

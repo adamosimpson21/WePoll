@@ -1,0 +1,20 @@
+    
+<!--Experience/Level Handler-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.js"></script> 
+    </body>
+    <footer>
+        <div class="container">
+            <% if(currentUser&&currentUser.experience!==undefined){ %>
+                <div class="progress xpProgress">
+                    <div class="progress-bar xpProgressBar" role="progressbar" aria-valuenow="<%=levelProgress(currentUser.experience)%>"
+                        aria-valuemin="0" aria-valuemax="100" style="width:<%=levelProgress(currentUser.experience)%>%">
+                        <span class="sr-only">50% Complete</span>
+                    </div>
+                </div>
+                <span id="progressBarDetail">You are level <%= checkLevel(currentUser.experience)%> with <%=currentUser.experience%> experience. Answer more question to gain experience and level up! </span>
+            <% } else  if(currentUser){ %>
+                <p>Create an new Username/password to access experience and leveling!</p>
+            <% } %>
+        </div>      
+    </footer>
+</html>

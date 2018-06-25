@@ -1,0 +1,31 @@
+<% include ../partials/header %>
+
+<!--Education Page for Questions-->
+
+
+<div class="container">
+    <div class="container questionTitle">
+        <h1><%=question.title%></h1>
+    </div>
+    <div>
+        <h1><%=question.questionContent%></h1>
+    </div>
+    <div>
+        <h4>Find out more information about this Topic through these links</h4>
+        <h4  id="eduLinkSend"><a class="btn btn-primary" href="<%=question.education%>"  target="_blank"><%=question.education%></a></h4>
+    </div>
+    <div class="eduLink">
+        <h4><a href="/questions/<%=question.id%>" disabled>Click me once you've read about the topic</a></h4>
+        <% if (currentUser && question.author && question.author._id.equals(currentUser._id)){ %>
+            <a class="btn btn-xs btn-warning" href="/questions/<%=question._id%>/edit">Edit</a>
+            <form action="/questions/<%=question._id%>?_method=DELETE" method="POST">
+                <button class="btn btn-xs btn-danger">Delete</button>
+            </form>
+        <% } %>
+    </div>
+</div>
+
+
+
+<% include ../partials/footer %>
+

@@ -1,0 +1,27 @@
+<% include ../partials/header %>
+
+
+<!--Party show route-->
+
+<div class="container">
+    <div class="container partyTitle">
+        <h1><%=party.name%></h1>
+    </div>
+    <div>
+        <h4><%=party.description%></h4>
+        <img src="<%=party.image%>"></img>
+        <h4>Party Level:<%=party.level%></h4>
+        <form action="/party" method="POST">
+            <button type="submit" value="<%=party._id%>" name="party">Join <%=party.name%></button>
+        </form>
+        <% if (currentUser&&currentUser.party){ %>
+            <p>You are a member of <%=currentUser.party.name%></p>
+        <% } else if(currentUser){ %>
+            <p>You aren't a member of any party, or create an new Username/password to access parties!</p>
+        <% } %>
+    </div>
+</div>
+
+
+<% include ../partials/footer %>
+

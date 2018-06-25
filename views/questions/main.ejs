@@ -1,0 +1,28 @@
+<%//Psuedocode for finding user's answer
+
+
+getAnswer=function(){
+        for(var i=0; i<currentUser.answers.length; i++){
+            // console.log(currentUser.answers)
+            if(currentUser.answers[i][0].equals(question._id)){
+                if(currentUser.answers[i][1]==null){
+                    return "There has been an error, error #1";
+                } else {
+                    return currentUser.answers[i][1];
+                }
+            }
+        }
+        return false
+    }
+    
+makePieChart = function(){
+    d3.select("#answerPieChart")
+            .selectAll("li")
+            .data(question.answers)
+            .enter()
+            .append("li")
+                .text(function(d){
+                    return d;
+                })
+}
+%>
