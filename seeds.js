@@ -166,7 +166,250 @@ var data= [
         tags:["General", "Voting", "Holiday"],
         education: "https://en.wikipedia.org/wiki/Election_day",
         answers: [["Yes",0],["Holiday, but not required",0],["No holiday, but improved access to voting",0],["No",0]]
+},{
+        
+	title: "Marriage",
+
+        questionContent: "Should all people be allowed to enter into marriage with any consenting partner?",
+
+        rating: 100,
+
+        author: "5b3177b56a957d00147de573",
+
+        description: "Should all people be allowed to enter into marriage with any consenting partner?",
+
+        xpReward: 150,
+
+        tags:["General", "Social", "Marriage"],
+
+        education: "https://en.wikipedia.org/wiki/Marriage",
+
+        answers: [["Yes",0],["Only some",0],["No",0]]
+
 },
+{
+        
+	title: "Marriage factor - sex",
+
+        questionContent: "Should the sex of the couple be a determining factor on their ability to enter into a consensual marriage?",
+
+        rating: 100,
+
+        author: "5b3177b56a957d00147de573",
+
+        description: "Should the sex of the couple be a determining factor on their ability to enter into a consensual marriage?",
+
+        xpReward: 150,
+
+        tags:["General", "Social", "Marriage"],
+
+        education: "https://en.wikipedia.org/wiki/Same-sex_marriage",
+
+        answers: [["Yes",0],["No",0]]
+
+},
+{
+        
+	title: "Marriage factor - age",
+
+        questionContent: "Should the age of the couple be a determining factor on their ability to enter into a consensual marriage?",
+
+        rating: 100,
+
+        author: "5b3177b56a957d00147de573",
+
+        description: "Should the age of the couple be a determining factor on their ability to enter into a consensual marriage?",
+
+        xpReward: 150,
+
+        tags:["General", "Social", "Marriage"],
+
+        education: "https://en.wikipedia.org/wiki/Age_of_consent#Marriage_and_the_age_of_consent",
+
+        answers: [["Yes",0],["No",0]]
+
+},
+{
+        
+	title: "Marriage factor - class",
+
+        questionContent: "Should the social class or identity of the couple be a determining factor on their ability to enter into a consensual marriage?",
+
+        rating: 100,
+
+        author: "5b3177b56a957d00147de573",
+
+        description: "Should the social class or identity of the couple be a determining factor on their ability to enter into a consensual marriage?",
+
+        xpReward: 150,
+
+        tags:["General", "Social", "Marriage"],
+
+        education: "https://en.wikipedia.org/wiki/Social_class",
+
+        answers: [["Yes",0],["No",0]]
+
+},
+{
+        
+	title: "Federal healthcare option",
+
+        questionContent: "Should the fed gov ensure that all citizens have access to affordable, useful health insurance?",
+
+        rating: 100,
+
+        author: "5b3177b56a957d00147de573",
+
+        description: "Should the fed gov ensure that all citizens have access to affordable, useful health insurance?",
+
+        xpReward: 150,
+
+        tags:["General", "Healthcare", "Federal"],
+
+        education: "https://en.wikipedia.org/wiki/Publicly_funded_health_care",
+
+        answers: [["Yes, public option",0],["Yes, regulation of private industry",0],["No",0]]
+},
+{
+        
+	title: "Healthcare by Federal Gov",
+
+        questionContent: "Should the fed gov have a role in protecting the health of citizens?",
+
+        rating: 100,
+
+        author: "5b3177b56a957d00147de573",
+
+        description: "Should the fed gov have a role in protecting the health of citizens?",
+
+        xpReward: 150,
+
+        tags:["General", "Healthcare", "Federal"],
+
+        education: "https://en.wikipedia.org/wiki/Publicly_funded_health_care",
+
+        answers: [["Yes, public option",0],["Yes, regulation of private industry",0],["No",0]]
+},
+{
+        
+	title: "Health protection - drugs",
+
+        questionContent: "Should the fed gov promote health of citizens by protecting them from drugs?",
+
+        rating: 100,
+
+        author: "5b3177b56a957d00147de573",
+
+        description: "Should the fed gov promote health of citizens by protecting them from drugs?",
+
+        xpReward: 150,
+
+        tags:["General", "Healthcare", "Drugs"],
+
+        education: "https://en.wikipedia.org/wiki/Drug",
+
+        answers: [["Yes, all drugs",0],["Yes, only dangerous drugs",0],["No",0]]
+},
+{
+        
+	title: "Health protection - low risk drugs",
+
+        questionContent: "Should drugs with very low risk of dangerous side effects be available without prescription?",
+
+        rating: 100,
+
+        author: "5b3177b56a957d00147de573",
+
+        description: "Should drugs with very low risk of dangerous side effects be available without prescription?",
+
+        xpReward: 150,
+
+        tags:["General", "Healthcare", "Drugs"],
+
+        education: "https://en.wikipedia.org/wiki/Drug",
+
+        answers: [["Yes",0],["Not if they give a 'high'",0],["No",0]]
+},
+{
+        
+	title: "Marijuana Regulation",
+
+        questionContent: "How should marijuana be regulated?",
+
+        rating: 100,
+
+        author: "5b3177b56a957d00147de573",
+
+        description: "How should marijuana be regulated?",
+
+        xpReward: 150,
+
+        tags:["General", "Healthcare", "Drugs"],
+
+        education: "https://en.wikipedia.org/wiki/Cannabis",
+
+        answers: [["Totally legal",0],["Like alcohol & tobacco",0],["By state gov",0],["Medical Use Only",0],["Totally illegal",0]]
+},
+{
+        
+	title: "Caffeine Regulation",
+
+        questionContent: "How should caffeine be regulated?",
+
+        rating: 100,
+
+        author: "5b3177b56a957d00147de573",
+
+        description: "How should caffeine be regulated?",
+
+        xpReward: 150,
+
+        tags:["General", "Healthcare", "Drugs"],
+
+        education: "https://en.wikipedia.org/wiki/caffeine",
+
+        answers: [["Totally legal",0],["Like alcohol & tobacco",0],["By state gov",0],["Medical Use Only",0],["Totally illegal",0]]
+},
+{
+        
+	title: "Alcohol Regulation",
+
+        questionContent: "How should alcohol be regulated?",
+
+        rating: 100,
+
+        author: "5b3177b56a957d00147de573",
+
+        description: "How should alcohol be regulated?",
+
+        xpReward: 150,
+
+        tags:["General", "Healthcare", "Drugs"],
+
+        education: "https://en.wikipedia.org/wiki/alcohol",
+
+        answers: [["Totally legal",0],["Same as current",0],["By state gov",0],["Medical Use Only",0],["Totally illegal",0]]
+},
+{
+        
+	title: "Tobacco Regulation",
+
+        questionContent: "How should tobacco be regulated?",
+
+        rating: 100,
+
+        author: "5b3177b56a957d00147de573",
+
+        description: "How should tobacco be regulated?",
+
+        xpReward: 150,
+
+        tags:["General", "Healthcare", "Drugs"],
+
+        education: "https://en.wikipedia.org/wiki/tobacco",
+
+        answers: [["Totally legal",0],["Same as current",0],["By state gov",0],["Medical Use Only",0],["Totally illegal",0]]
+}
 ]
 
 //clear, then seed DB
