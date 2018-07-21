@@ -52,7 +52,7 @@ mongoose.connect(process.env.DATABASEURL);
 
 
 //clear and seed DB
-seedDB();
+// seedDB();
 //seed Users currently puts x! instead of x users in DB, be careful
 // seedUsers(1);
 // seedDBItems();
