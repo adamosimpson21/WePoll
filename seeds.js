@@ -13,7 +13,7 @@ var data= [
         xpReward: 150,
         tags:[],
         education: "https://en.wikipedia.org/wiki/Color",
-        answers:[["Blue",2],["Red",4],["Periwinkle",6],["White",10],["Black",1],["Green",0]]
+        answers:[["Orange",2],["Red",4],["Periwinkle",6],["White",10],["Black",1],["Green",0]]
     },
     {
         _id:'5b1b1f680fb14600142a9030',
