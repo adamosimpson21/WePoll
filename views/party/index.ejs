@@ -1,0 +1,37 @@
+<% include ../partials/header %>
+
+<!--Party Index Page-->
+
+<div class="container">
+    <header class="jumbotron jumbotronMain" >
+        <div class="container">
+            <h1>All Parties</h1>
+            <p>View/join any current parties.</p>
+            <p class="btn btn-lg">
+                <a>This doesn't do anything</a>
+            </p>
+        </div>
+    </header>
+    <!--Display Parties-->
+    
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% parties.forEach(function(party){%>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail rounded">
+                    <div class="caption">
+                        <h5 class="indexDisplay"><%=party.name%></h5>
+                        <h5 class="indexDisplay"><img class="partyImage" src="<%=party.image%>"></img></h5>
+                        <h5 class="indexDisplay"><%=party.description%></h5>
+                    </div>
+                    <p>
+                        <a href="/party/<%=party._id%>" class="btn btn-primary">Check out this Party</a>
+                    </p>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+
+
+<% include ../partials/footer %>

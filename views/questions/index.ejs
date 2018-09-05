@@ -1,0 +1,35 @@
+<% include ../partials/header %>
+
+<!--Question Index-->
+<div class="container">
+    <header class="jumbotron jumbotronMain" >
+        <div class="container">
+            <h1>All Questions</h1>
+            <p>On this page you can follow this link to create a Question, and view all current questions.</p>
+            <p class="btn btn-lg">
+                <a href="/questions/new">Add a new Question Here</a>
+            </p>
+        </div>
+    </header>
+    <!--Display Questions-->
+    
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% questions.forEach(function(question){%>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail rounded">
+                    <div class="caption">
+                        <h4 class="indexDisplay"><%=question.title%></h4>
+                        <p class="indexDisplay"><%=question.description%></p>
+                    </div>
+                    <p>
+                        <a href="/questions/<%=question._id%>/education" class="btn btn-primary">Learn and Answer this Q</a>
+                    </p>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+
+
+<% include ../partials/footer %>

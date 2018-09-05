@@ -1,0 +1,220 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body{
+    background:lightblue;
+    margin: 0 0 100px;
+}
+
+footer{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    overflow:hidden;
+}
+
+#main-nav-bar{
+    background-color:darkblue;
+}
+
+#brandImage{
+    /*background-image:url("~/workspace/public/images/bodyavatar.png"); */
+    /*background-image:linear-gradient(red, yellow, green); */
+    height:48px; 
+    width:48px;
+}
+
+#logInTitle{
+    padding:30px;
+}
+
+.jumbotronMain{
+    margin-top:30px;
+}
+
+.menu-button{
+    width:200px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+#questionNewHeader{
+    margin:50px auto 50px auto;
+}
+
+.answerDisplay:focus{
+    background:green;
+}
+
+
+
+.questionTitle{
+    width:500px;
+    /*margin:auto;*/
+    padding:50px;
+    text-align:center;
+}
+
+.eduLink{
+    display:none;
+}
+
+#questionAnswered{
+    /*display:none;*/
+}
+
+/*question results chart*/
+#answerPieChart{
+    width:300px;
+    height:300px;
+    /*background-color:white;*/
+}
+
+/*question results tooltips*/
+.tooltipResultsGraph {
+    opacity:0;
+    position:absolute;
+    pointer-events:none;
+    border:1px solid lightgray;
+    /*border-radius:8px;*/
+    background-color:white;
+    /*padding:15px;*/
+}
+
+.menuh4{
+    width:400px;
+    padding:10px;
+    margin:auto;
+}
+
+.thumbnail{
+    border: 2px solid gray;
+    margin:5px;
+}
+
+.indexDisplay{
+    padding:2px;
+}
+
+.itemDisplay{
+    width:200px;
+    /*height:200px;*/
+}
+
+.coinImage{
+    width:25px;
+    height:25px;
+}
+
+.avatarImage{
+    height:100px;
+    width:100px;
+}
+
+.partyImage{
+    height:100px;
+    width:200px;
+}
+
+.itemDisplayProfile{
+    /*width:50px;*/
+    height:50px;
+}
+
+.profileTitle{
+    padding:80px;
+}
+
+#main-nav-bar{
+    background:rgba(0,180,255,1.0)
+}
+
+.navbar-dark .navbar-brand{
+    padding:0;
+    margin:0;
+}
+
+.xpProgress{
+    width:250px;
+    float:left;
+}
+
+#progressBarDetail{
+    float:right;
+}
+
+
+#passwordJoke{
+    display:none;
+}
+
+#profileDemographics{
+    display:none;
+}
+
+.answerParent{
+    width:100%;
+}
+
+.answerList{
+    list-style: none;
+    padding-left:0;
+}
+
+.answerList li{
+    padding:10px 0 10px 0;
+    margin:0;
+    width:200px;
+}
+
+/*Profile Update Tooltips*/
+/* Tooltip container */
+.tooltipProfileUpdate {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltipProfileUpdate .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltipProfileUpdate .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltipProfileUpdate:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="WePoll Polling Application">
+        <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+        <meta name="author" content="BandsWithLegends">
+        <noscript>Your browser does not support JavaScript! This Page contains many elements that require JavaScript, consider using this awesome technology!</noscript>
+        <title>WePoll</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
+        <link rel="stylesheet" href="/stylesheets/main.css"></link>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+        <script type="text/javascript" src="/scripts/main.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-header" id="main-nav-bar">
+            <a class="navbar-brand" href="/questions"><img id="brandImage" src="/images/wepollBrand.jpg"></img></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/mainmenu">Main Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/questions"><i class="fas fa-question"></i> Question Page</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/shop"><i class="fas fa-shopping-cart"></i> Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/settings"><i class="fas fa-cogs"></i> Settings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/profile"><i class="fas fa-id-card"></i> Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/party"><i class="fas fa-users"></i> Parties</a>
+                        </li>
+                        <!--<li class="nav-item dropdown">-->
+                        <!--    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                        <!--        Dropdown-->
+                        <!--    </a>-->
+                        <!--    <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+                        <!--        <a class="dropdown-item" href="#">Action</a>-->
+                        <!--        <a class="dropdown-item" href="#">Another action</a>-->
+                        <!--        <div class="dropdown-divider"></div>-->
+                        <!--        <a class="dropdown-item" href="#">Something else here</a>-->
+                        <!--    </div>-->
+                        <!--</li>-->
+                    </ul>
+                <div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <% if(!currentUser){ %>
+                            <li><div class="container"><a href="/login"><i class="fas fa-sign-in-alt"></i> Login </a></div></li>
+                            <li><div class="container"><a href="/register"><i class="fas fa-user-plus"></i> Sign Up</a></div></li>
+                        <% } else { %>
+                            <li><div class="container"><a>Signed in as <i class="fas fa-user"></i> <%=currentUser.username%></a></div></li>
+                            <li><div class="container"><a href="/logout"><i class="fas fa-sign-out-alt"></i> LogOut</a></div></li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!--Flash Alert System-->
+        <br>
+        <div class="container">
+            <% if(error && error.length > 0){ %>
+                <div class="alert alert-danger" role="alert">
+                    <%=error%>
+                </div>
+            <% } %>
+            <% if(success && success.length > 0){ %>
+                <div class="alert alert-success" role="alert">
+                    <%=success%>
+                </div>
+            <% } %>
+        </div>
