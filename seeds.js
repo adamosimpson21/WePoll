@@ -5,79 +5,15 @@ var middleware = require("./middleware/index");
 var data= [
     {
         _id:"5b1b1f680fb14600142a902f",
-        title: "Favorite Color",
-        questionContent: "What is your favorite Color?",
+        title: "First Question - Start Here!",
+        questionContent: "Welcome to WePoll!  This is where the question will appear.  To see the possible answers, you must first click the link and view educational information about the topic.  Click below to learn about polls, and then tell us, How do you find polling on WePoll?",
         rating: 100,
         author: "5aad989a0355d2087a3186b8",
-        description: "How colorful",
+        description: "First Q",
         xpReward: 150,
         tags:[],
-        education: "https://en.wikipedia.org/wiki/Color",
-        answers:[["Orange",2],["Red",4],["Periwinkle",6],["White",10],["Black",1],["Green",0]]
-    },
-    {
-        _id:'5b1b1f680fb14600142a9030',
-        title: "Favorite Programmer",
-        questionContent: "Who is your favorite Programmer?",
-        rating: 100,
-        author: "5aad989a0355d2087a3186b8",
-        description: "Programmers are cool",
-        xpReward: 150,
-        tags:["General", "Technology", "Computers"],
-        education: "https://en.wikipedia.org/wiki/Computer",
-        answers: [["Bill Gates",0],["Alan Turing",0],["BandsWithLegends",0]]
-    },
-    {
-        _id:"5b1b1f680fb14600142a9031",
-        title: "WePoll FeedBack",
-        questionContent: "What do you think of the site so far?",
-        rating: 100,
-        author: "5aad989a0355d2087a3186b8",
-        description: "Help me help you!",
-        xpReward: 150,
-        education: "https://powerful-escarpment-46699.herokuapp.com/",
-        answers: [["It's Great!",0],["It's Alright",0],["Needs some Improvement",0]]
-    },
-    {
-        _id:"5b1b1f680fb14600142a9032",
-        title: "Future Plans",
-        questionContent: "What would you like to see in the future of WePoll?",
-        rating: 100,
-        author: "5aad989a0355d2087a3186b8",
-        description: "Help me (BandsWithLegends) improve the site",
-        xpReward: 150,
-        education: "https://powerful-escarpment-46699.herokuapp.com/",
-        answers: [["Better Questions/Answers",0],["Question Categories",0],["Make it Pretty",0]]
-    },
-        {
-        title: "Your Progress",
-        questionContent: "What Level are you in WePoll?",
-        rating: 100,
-        author: "5aad989a0355d2087a3186b8",
-        description: "Let me know how far you've gotten",
-        xpReward: 150,
-        education: "https://powerful-escarpment-46699.herokuapp.com/",
-        answers: [["Level 1",0],["Level 2-5",0],["Level 6+",0]]
-    },
-        {
-        title: "Pizza Toppings",
-        questionContent: "What's the best topping to put on pizza?",
-        rating: 100,
-        author: "5aad989a0355d2087a3186b8",
-        description: "Let's put a century's old debate to rest",
-        xpReward: 150,
-        education: "https://en.wikipedia.org/wiki/Pizza",
-        answers: [["Just Cheese",0],["Pepperoni",0],["Pineapple",0]]
-    },
-        {
-        title: "The Dress",
-        questionContent: "What color is this dress?",
-        rating: 100,
-        author: "5aad989a0355d2087a3186b8",
-        description: "The Dress",
-        xpReward: 150,
-        education: "https://en.wikipedia.org/wiki/The_dress",
-        answers: [["Black and Black",0],["White and Gold",0],["Who. Cares.",0]]
+        education: "https://en.wikipedia.org/wiki/poll",
+        answers:[["This works great",0],["It's confusing",0],["Don't want to click link",0],["Needs improving",0]]
     },
     {
 	    title: "Fed Reg of Firearms",
@@ -409,7 +345,39 @@ var data= [
         education: "https://en.wikipedia.org/wiki/tobacco",
 
         answers: [["Totally legal",0],["Same as current",0],["By state gov",0],["Medical Use Only",0],["Totally illegal",0]]
-}
+},
+	{
+        _id:"5b1b1f680fb14600142a9031",
+        title: "WePoll FeedBack",
+        questionContent: "What do you think of the site so far?",
+        rating: 100,
+        author: "5aad989a0355d2087a3186b8",
+        description: "Help me help you!",
+        xpReward: 150,
+        education: "https://powerful-escarpment-46699.herokuapp.com/",
+        answers: [["It's Great!",0],["It's Alright",0],["Needs some Improvement",0]]
+    },
+    {
+        _id:"5b1b1f680fb14600142a9032",
+        title: "Future Plans",
+        questionContent: "What would you like to see in the future of WePoll?",
+        rating: 100,
+        author: "5aad989a0355d2087a3186b8",
+        description: "Help me (BandsWithLegends) improve the site",
+        xpReward: 150,
+        education: "https://powerful-escarpment-46699.herokuapp.com/",
+        answers: [["Better Questions/Answers",0],["Question Categories",0],["Make it Pretty",0]]
+    },
+        {
+        title: "Your Progress",
+        questionContent: "What Level are you in WePoll?",
+        rating: 100,
+        author: "5aad989a0355d2087a3186b8",
+        description: "Let me know how far you've gotten",
+        xpReward: 150,
+        education: "https://powerful-escarpment-46699.herokuapp.com/",
+        answers: [["Level 1",0],["Level 2-5",0],["Level 6+",0]]
+    }
 ]
 
 //clear, then seed DB
