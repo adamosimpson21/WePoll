@@ -5,68 +5,45 @@ var mongoose = require("mongoose");
 var Question = require("../models/question");
 var makeFakerNames = require("./fakerUserNames");
 
-var generateUsers = function(number, userGenerator){
-    // console.log("Beginning generateUsers")
+var generateUsers = function(number, userGenerator, callback){
     var userData = [];
     //loop number times
     for(var i=0;i<number;i++){
-        //make a User object with properties
         var user = userGenerator();
-        // console.log(`user is ${user}`)
-        //add questions
-        // console.log("About to add Questions to User");
-        randomQuestions(user);
+        user = randomQuestions(user);
         userData.push(user);
     }
-    // console.log("returning userData")
-    return userData;
+    callback(userData);
 }
 
 
-//log Answer function
-var logAnswer = function(answer, question, user){
-                // console.log(`in logAnswer question is ${question}`);
-                var storedAnswer = [question._id,answer];
-                //increment answer tally
-                for(var i=0; i<question.answers.length; i++){
-                    if(question.answers[i][0]==(answer)){
-                        question.answers[i][1] =question.answers[i][1]+1;
-                        Question.findByIdAndUpdate(question._id, question, function(err, foundQuestion2){
-                            if(err){
-                                console.log(err)
-                            }
-                        })
-                    }
-                }
-            // console.log("About to push Answer " + storedAnswer);
-            user.questions.push(question._id)
-            user.answers.push(storedAnswer)
-        }
-                
-                
+
 //random answered questions
 function randomQuestions(user){
-    // var possibleIDs = [ ["5b1b1f680fb14600142a902f","Blue","Red","Periwinkle","White","Black","Green"],
-    //                     ["5b1b1f680fb14600142a9030","Bill Gates","Alan Turing","BandsWithLegends"],
-    //                     ["5b1b1f680fb14600142a9031","It's Great!","It's Alright","Needs some Improvement"],
-    //                     ["5b1b1f680fb14600142a9032","Better Questions/Answers","Question Categories","Make it Pretty"]
-    //                 ];
-    // possibleIDs.forEach(function(question, index){
-        // console.log(`question is ${question}`);
-        // console.log(`questionid is ${question[0]}`);
         Question.find({}, function(err, foundQuestion){
             if(err){
                 console.log(err)
             }
             foundQuestion.forEach(function(foundEachQuestion, index){
-                // console.log(`foundEachQuestion is ${foundEachQuestion}`);
                 var randomIndex = Math.floor(Math.random()*(foundEachQuestion.answers.length));
                 var answerChoice = foundEachQuestion.answers[randomIndex][0];
-                // console.log("About to logAnswer. answerChoice is " + answerChoice);
-                logAnswer(answerChoice, foundEachQuestion, user);
+                for(var i=0; i<foundEachQuestion.answers.length; i++){
+                    if(foundEachQuestion.answers[i][0]==(answerChoice)){
+                        foundEachQuestion.answers[i][1] =foundEachQuestion.answers[i][1]+1;
+                        Question.findByIdAndUpdate(foundEachQuestion._id, foundEachQuestion, function(err, foundQuestion2){
+                            if(err){
+                                console.log(err)
+                            }
+                            
+                        })
+                    }
+                }
+                var storedAnswer = [foundEachQuestion._id,answerChoice];
+                user.questions.push(foundEachQuestion._id);
+                user.answers.push(storedAnswer);
             })
         })
-    // })
+    return user;
 }
 
 //random username

@@ -13,7 +13,8 @@ var express         = require("express"),
     seedUsers       = require("./userSeeds"),
     seedDBItems     = require("./itemSeeds"),
     seedDBparties   = require("./partySeeds"),
-    middleware      = require("./middleware/index");
+    middleware      = require("./middleware/index"),
+    config          = require("./config");
 
 
 //requiring routes
@@ -30,7 +31,7 @@ app.set("view engine", "ejs");
 
 //Passport configuration
 app.use(require("express-session")({
-    secret: "Apple Pie High Five",
+    secret: config.secretString,
     resave: false,
     saveUninitialized: false
 }));
@@ -42,22 +43,18 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-//start server
-// export DATABASEURL=mongodb://localhost/wepoll
-// console.log(process.env.DATABASEURL)
-
 //use for cloud9
-// process.env.DATABASEURL = "mongodb://localhost/wepoll";
+process.env.DATABASEURL = "mongodb://localhost/wepoll";
 mongoose.connect(process.env.DATABASEURL);
 
 //use for deploying to heroku
-// mongoose.connect("mongodb://BandsWithLegends:GrapeJelly@ds113749.mlab.com:13749/wepoll");
+// mongoose.connect(config.mongoString);
 
 
 //clear and seed DB
-seedDB();
+// seedDB();
 //seed Users currently puts x! instead of x users in DB, be careful
-// seedUsers(7);
+// seedUsers(1);
 // seedDBItems();
 // seedDBparties();
 

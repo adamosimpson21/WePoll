@@ -5,23 +5,19 @@ var usersData = require("./data/userData");
 
 
 //clear, then seed Users
-function seedUsers(num){
-    console.log(`num is ${num}`)
-    if(num==0){
-        console.log(`done seeding Users ${num}`)
-        return null
-    }
-    var data= usersData.generateUsers(num,usersData.userGenerateMethod);
-    data.forEach(function(seed){
-        User.create(seed, function(err, question){
-            if(err){
-                console.log(err);
-            } else {
-                console.log("added a user");
-                seedUsers(num-1);
-            }
-        })
-    })
-}
+// function seedUsers(num){
+//         usersData.generateUsers(num,usersData.userGenerateMethod){
+//             data.forEach(function(seed){
+//             console.log(`seed is ${seed.username}`)
+//             User.create(seed, function(err, createdUser){
+//                 if(err){
+//                     console.log(err);
+//                 } else {
+//                     console.log(`Added user ${createdUser}`);
+//                 }
+//             })
+//         })
+//     }
+// }
 
-module.exports=seedUsers;
+// module.exports=seedUsers;
