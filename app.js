@@ -14,7 +14,7 @@ var express         = require("express"),
     seedDBItems     = require("./itemSeeds"),
     seedDBparties   = require("./partySeeds"),
     middleware      = require("./middleware/index"),
-    // config          = require("./config");
+    config          = require("./config");
 
 
 //requiring routes
@@ -45,10 +45,10 @@ passport.deserializeUser(User.deserializeUser());
 
 //use for cloud9
 // process.env.DATABASEURL = "mongodb://localhost/wepoll";
-mongoose.connect(process.env.DATABASEURL);
+// mongoose.connect(process.env.DATABASEURL);
 
 //use for deploying to heroku
-// mongoose.connect(config.mongoString);
+mongoose.connect(config.mongoString);
 
 
 //clear and seed DB
