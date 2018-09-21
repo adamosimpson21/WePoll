@@ -25,7 +25,13 @@ var itemData = [
         cost:10,
         image:"https://5.imimg.com/data5/KO/RD/MY-1665840/gutts-26-500x500.jpg",
         stack:1
-    }
+    },
+  {
+    name:"New Item",
+    cost:1,
+    image:"./public/images/shopItems/myItemName.jpg",
+    stack:1
+  }
 ]
 
 function seedDBItems(){
